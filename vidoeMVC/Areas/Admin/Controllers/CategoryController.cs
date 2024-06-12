@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using vidoeMVC.DAL;
 using vidoeMVC.Models;
@@ -6,7 +7,7 @@ using vidoeMVC.ViewModels.Categories;
 
 namespace vidoeMVC.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area("Admin"),Authorize]
     public class CategoryController(VidoeDBContext _context) : Controller
     {
         public async Task<IActionResult> Index()

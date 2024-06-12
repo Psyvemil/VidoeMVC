@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using vidoeMVC.DAL;
+using vidoeMVC.Models;
 
 namespace vidoeMVC
 {
@@ -14,6 +16,17 @@ namespace vidoeMVC
 
             builder.Services.AddDbContext<VidoeDBContext>(optinons => optinons.UseSqlServer(builder.Configuration.GetConnectionString("CodeFirst")));
 
+            builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
+            {
+                opt.User.RequireUniqueEmail = true;
+                opt.Password.RequiredLength = 6;
+                opt.Password.RequireNonAlphanumeric = false;
+                opt.Password.RequireDigit = false;
+                opt.Password.RequireLowercase = false;
+                opt.Password.RequireUppercase = false;
+            })
+    .AddEntityFrameworkStores<VidoeDBContext>()
+    .AddDefaultTokenProviders();
 
             var app = builder.Build();
 

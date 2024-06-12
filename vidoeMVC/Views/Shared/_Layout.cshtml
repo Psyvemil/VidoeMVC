@@ -121,12 +121,25 @@
                     
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-controller="VideoUpload" asp-action="Index">
-                    <i class="fas fa-fw fa-cloud-upload-alt"></i>
-                    <span>Upload Video</span>
-                </a>
-            </li>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="VideoUpload" asp-action="Index">
+                        <i class="fas fa-fw fa-cloud-upload-alt"></i>
+                        <span>Upload Video</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Account" asp-action="Login">
+                        <i class="fas fa-fw fa-cloud-upload-alt"></i>
+                        <span>Upload Video</span>
+                    </a>
+                </li>
+            }
+            
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-fw fa-folder"></i>
