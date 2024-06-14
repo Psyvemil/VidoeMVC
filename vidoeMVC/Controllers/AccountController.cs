@@ -39,7 +39,7 @@ namespace vidoeMVC.Controllers
                 }
                 return View(vm);
             }
-            await _userManager.AddToRoleAsync(user, UserRole.User.ToString());
+            await _userManager.AddToRoleAsync(user,UserRole.PUser.ToString());
 
             return View();
         }
@@ -84,7 +84,7 @@ namespace vidoeMVC.Controllers
         {
             await _signInManager.SignOutAsync();
 
-            return RedirectToAction(nameof(Login));
+            return RedirectToAction(nameof(Index),"Home");
         }
 
         public async Task<IActionResult> CreateRoles()

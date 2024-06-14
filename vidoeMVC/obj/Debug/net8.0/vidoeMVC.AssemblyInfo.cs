@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("vidoeMVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f2ba331671b7f28673faeaaf4e856131d3f54557")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e0e44bff841dc84a801b723e6479eb0e550143f7")]
 [assembly: System.Reflection.AssemblyProductAttribute("vidoeMVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("vidoeMVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

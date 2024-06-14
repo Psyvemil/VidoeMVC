@@ -7,5 +7,10 @@ namespace vidoeMVC.Models
         public string Name { get; set; }
         public string Surname { get; set; }
         public DateTime? BirthDate { get; set; }
+
+        public virtual ICollection<UserFollow>? Followers { get; set; }
+        public virtual ICollection<UserFollow>? Followees { get; set; }  
+
+
     }
 }

@@ -1,4 +1,8 @@
-﻿<div class="container-fluid pb-0">
+﻿@using System.Security.Claims
+
+
+@model HomeVM
+<div class="container-fluid pb-0">
     <div class="top-mobile-search">
         <div class="row">
             <div class="col-md-12">
@@ -32,114 +36,20 @@
             </div>
             <div class="col-md-12">
                 <div class="owl-carousel owl-carousel-category">
+                    @foreach (var item in Model.categories)
+                    {
                     <div class="item">
                         <div class="category-item">
                             <a href="#">
                                 <img class="img-fluid" src="~/img/s1.png" alt="">
-                                <h6>Your Life</h6>
+                                <h6>@item.Name</h6>
                                 <p>74,853 views</p>
                             </a>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="category-item">
-                            <a href="#">
-                                <img class="img-fluid" src="~/img/s2.png" alt="">
-                                <h6>Unboxing Cool</h6>
-                                <p>74,853 views</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="category-item">
-                            <a href="#">
-                                <img class="img-fluid" src="~/img/s3.png" alt="">
-                                <h6>Service Reviewing</h6>
-                                <p>74,853 views</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="category-item">
-                            <a href="#">
-                                <img class="img-fluid" src="~/img/s4.png" alt="">
-                                <h6>Gaming <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></h6>
-                                <p>74,853 views</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="category-item">
-                            <a href="#">
-                                <img class="img-fluid" src="~/img/s5.png" alt="">
-                                <h6>Technology Tutorials</h6>
-                                <p>74,853 views</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="category-item">
-                            <a href="#">
-                                <img class="img-fluid" src="~/img/s6.png" alt="">
-                                <h6>Singing</h6>
-                                <p>74,853 views</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="category-item">
-                            <a href="#">
-                                <img class="img-fluid" src="~/img/s7.png" alt="">
-                                <h6>Cooking</h6>
-                                <p>74,853 views</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="category-item">
-                            <a href="#">
-                                <img class="img-fluid" src="~/img/s8.png" alt="">
-                                <h6>Traveling</h6>
-                                <p>74,853 views</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="category-item">
-                            <a href="#">
-                                <img class="img-fluid" src="~/img/s1.png" alt="">
-                                <h6>Education</h6>
-                                <p>74,853 views</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="category-item">
-                            <a href="#">
-                                <img class="img-fluid" src="~/img/s2.png" alt="">
-                                <h6>Noodles, Sauces & Instant Food</h6>
-                                <p>74,853 views</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="category-item">
-                            <a href="#">
-                                <img class="img-fluid" src="~/img/s3.png" alt="">
-                                <h6>Comedy <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></h6>
-                                <p>74,853 views</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="category-item">
-                            <a href="#">
-                                <img class="img-fluid" src="~/img/s4.png" alt="">
-                                <h6>Lifestyle Advice</h6>
-                                <p>74,853 views</p>
-                            </a>
-                        </div>
-                    </div>
+                        
+                    }
+
                 </div>
             </div>
         </div>
@@ -342,70 +252,66 @@
                     <h6>Popular Channels</h6>
                 </div>
             </div>
-            <div class="col-xl-3 col-sm-6 mb-3">
-                <div class="channels-card">
-                    <div class="channels-card-image">
-                        <a href="#"><img class="img-fluid" src="~/img/s1.png" alt=""></a>
-                        <div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Subscribe <strong>1.4M</strong></button></div>
-                    </div>
-                    <div class="channels-card-body">
-                        <div class="channels-title">
-                            <a href="#">Channels Name</a>
+            @foreach (var user in Model.users)
+            {
+                <div class="col-xl-3 col-sm-6 mb-3">
+                    <div class="channels-card">
+                        <div class="channels-card-image">
+                            <a href="#"><img class="img-fluid" src="~/img/s1.png" alt=""></a>
+                            <div class="channels-card-image-btn">
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                                    if (user.Followers != null && user.Followers.Any(f => f.FollowerId == currentUserId))
+                                    {
+                                        <form asp-action="Unfollow" asp-controller="Following" method="post">
+                                            <input type="hidden" name="id" value="@user.Id" />
+                                            <button type="submit">Unfollow</button>
+                                        </form>
+                                    }
+                                    else
+                                    {
+                                        <form asp-action="Follow" asp-controller="Following" method="post">
+                                            <input type="hidden" name="id" value="@user.Id" />
+                                            <button type="submit">Follow</button>
+                                        </form>
+                                    }
+                                }
+                            </div>
                         </div>
-                        <div class="channels-view">
-                            382,323 subscribers
+                        <div class="channels-card-body">
+                            <div class="channels-title">
+                                <a href="#">@user.UserName</a>
+                            </div>
+                            <div class="channels-view">
+                                382,323 subscribers
+                            </div>
                         </div>
                     </div>
+                    @if (user.Followers != null && user.Followers.Any())
+                    {
+                        <h3>Followers</h3>
+                        <ul>
+                            @foreach (var follower in user.Followers)
+                            {
+                                <li>@follower?.Follower?.UserName</li>
+                            }
+                        </ul>
+                    }
+                    @if (user.Followees != null && user.Followees.Any())
+                    {
+                        <h3>Following</h3>
+                        <ul>
+                            @foreach (var followee in user.Followees)
+                            {
+                                <li>@followee?.Followee?.UserName</li>
+                            }
+                        </ul>
+                    }
                 </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 mb-3">
-                <div class="channels-card">
-                    <div class="channels-card-image">
-                        <a href="#"><img class="img-fluid" src="~/img/s2.png" alt=""></a>
-                        <div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Subscribe <strong>1.4M</strong></button></div>
-                    </div>
-                    <div class="channels-card-body">
-                        <div class="channels-title">
-                            <a href="#">Channels Name</a>
-                        </div>
-                        <div class="channels-view">
-                            382,323 subscribers
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 mb-3">
-                <div class="channels-card">
-                    <div class="channels-card-image">
-                        <a href="#"><img class="img-fluid" src="~/img/s3.png" alt=""></a>
-                        <div class="channels-card-image-btn"><button type="button" class="btn btn-outline-secondary btn-sm">Subscribed <strong>1.4M</strong></button></div>
-                    </div>
-                    <div class="channels-card-body">
-                        <div class="channels-title">
-                            <a href="#">Channels Name <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle"></i></span></a>
-                        </div>
-                        <div class="channels-view">
-                            382,323 subscribers
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 mb-3">
-                <div class="channels-card">
-                    <div class="channels-card-image">
-                        <a href="#"><img class="img-fluid" src="~/img/s4.png" alt=""></a>
-                        <div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Subscribe <strong>1.4M</strong></button></div>
-                    </div>
-                    <div class="channels-card-body">
-                        <div class="channels-title">
-                            <a href="#">Channels Name</a>
-                        </div>
-                        <div class="channels-view">
-                            382,323 subscribers
-                        </div>
-                    </div>
-                </div>
-            </div>
+            }
+
+          
         </div>
     </div>
 </div>
