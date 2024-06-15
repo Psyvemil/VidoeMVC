@@ -266,14 +266,14 @@
                                     {
                                         <form asp-action="Unfollow" asp-controller="Following" method="post">
                                             <input type="hidden" name="id" value="@user.Id" />
-                                            <button type="submit">Unfollow</button>
+                                            <button class="btn btn-outline-secondary btn-sm" type="submit">Unfollow</button>
                                         </form>
                                     }
                                     else
                                     {
                                         <form asp-action="Follow" asp-controller="Following" method="post">
                                             <input type="hidden" name="id" value="@user.Id" />
-                                            <button type="submit">Follow</button>
+                                            <button class="btn btn-outline-danger btn-sm" type="submit">Follow</button>
                                         </form>
                                     }
                                 }
@@ -284,7 +284,7 @@
                                 <a href="#">@user.UserName</a>
                             </div>
                             <div class="channels-view">
-                                382,323 subscribers
+                                @user.Followers.Count subscribers
                             </div>
                         </div>
                     </div>
@@ -294,7 +294,8 @@
                         <ul>
                             @foreach (var follower in user.Followers)
                             {
-                                <li>@follower?.Follower?.UserName</li>
+                                
+                                <li>@follower.Follower.UserName</li>
                             }
                         </ul>
                     }

@@ -15,30 +15,39 @@ namespace vidoeMVC.Controllers
     {
         
 
-        public async Task< IActionResult> Index()
+      
+        public async Task<IActionResult> Index()
         {
-            List<UserVM> AppUsers = await _userManager.Users.Select(u => new UserVM
+            
+
+            var categories = await _context.Categories.ToListAsync();
+
+            var appUsers = await _userManager.Users
+                .Include(u => u.Followers)
+                .ThenInclude(f => f.Follower)
+                .Include(u => u.Followees)
+                .ThenInclude(f => f.Followee)
+                .Select(u => new UserVM
             {
                 UserName = u.UserName,
                 Id = u.Id,
-                Followers = u.Followers,
-                Followees = u.Followees
+                Followers = u.Followers ?? new List<UserFollow>(),
+                Followees = u.Followees ?? new List<UserFollow>()
+            }).ToListAsync();
 
-            }).ToListAsync();
-            List<GetCategoryVM> Categories =await _context.Categories.Select(c=> new GetCategoryVM
+            var homeVM = new HomeVM
             {
-                Name = c.Name,
-                Id = c.Id,
-            }).ToListAsync();
-            HomeVM homeVM = new HomeVM
-            {
-                categories = Categories,
-                users = AppUsers
+                categories = categories.Select(c => new GetCategoryVM
+                {
+                    Name = c.Name,
+                    Id = c.Id
+                }).ToList(),
+                users = appUsers
             };
 
             return View(homeVM);
-        }    
-        
+        }
+
     }
 
 }
