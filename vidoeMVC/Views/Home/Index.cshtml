@@ -1,7 +1,6 @@
 ﻿@using System.Security.Claims
-
-
 @model HomeVM
+
 <div class="container-fluid pb-0">
     <div class="top-mobile-search">
         <div class="row">
@@ -17,6 +16,7 @@
             </div>
         </div>
     </div>
+
     <div class="top-category section-padding mb-4">
         <div class="row">
             <div class="col-md-12">
@@ -38,23 +38,23 @@
                 <div class="owl-carousel owl-carousel-category">
                     @foreach (var item in Model.categories)
                     {
-                    <div class="item">
-                        <div class="category-item">
-                            <a href="#">
-                                <img class="img-fluid" src="~/img/s1.png" alt="">
-                                <h6>@item.Name</h6>
-                                <p>74,853 views</p>
-                            </a>
+                        <div class="item">
+                            <div class="category-item">
+                                <a href="#">
+                                    <img class="img-fluid" src="~/img/s1.png" alt="">
+                                    <h6>@item.Name</h6>
+                                    <p>74,853 views</p>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                        
                     }
-
                 </div>
             </div>
         </div>
     </div>
+
     <hr>
+
     <div class="video-block section-padding">
         <div class="row">
             <div class="col-md-12">
@@ -72,169 +72,35 @@
                     <h6>Featured Videos</h6>
                 </div>
             </div>
-            <div class="col-xl-3 col-sm-6 mb-3">
-                <div class="video-card">
-                    <div class="video-card-image">
-                        <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                        <a href="#"><img class="img-fluid" src="~/img/v1.png" alt=""></a>
-                        <div class="time">3:50</div>
-                    </div>
-                    <div class="video-card-body">
-                        <div class="video-title">
-                            <a href="#">There are many variations of passages of Lorem</a>
+
+           @*  @foreach (var video in Model.Videos)
+            {
+                <div class="col-xl-3 col-sm-6 mb-3">
+                    <div class="video-card">
+                        <div class="video-card-image">
+                            <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
+                            <a href="#"><img class="img-fluid" src="~/img/v1.png" alt=""></a>
+                            <div class="time">3:50</div>
                         </div>
-                        <div class="video-page text-success">
-                            Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
-                        </div>
-                        <div class="video-view">
-                            1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 mb-3">
-                <div class="video-card">
-                    <div class="video-card-image">
-                        <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                        <a href="#"><img class="img-fluid" src="~/img/v2.png" alt=""></a>
-                        <div class="time">3:50</div>
-                    </div>
-                    <div class="video-card-body">
-                        <div class="video-title">
-                            <a href="#">There are many variations of passages of Lorem</a>
-                        </div>
-                        <div class="video-page text-success">
-                            Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
-                        </div>
-                        <div class="video-view">
-                            1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
+                        <div class="video-card-body">
+                            <div class="video-title">
+                                <a href="#">@video.Title</a>
+                            </div>
+                            <div class="video-page text-success">
+                                @video.Category  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
+                            </div>
+                            <div class="video-view">
+                                1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 mb-3">
-                <div class="video-card">
-                    <div class="video-card-image">
-                        <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                        <a href="#"><img class="img-fluid" src="~/img/v3.png" alt=""></a>
-                        <div class="time">3:50</div>
-                    </div>
-                    <div class="video-card-body">
-                        <div class="video-title">
-                            <a href="#">There are many variations of passages of Lorem</a>
-                        </div>
-                        <div class="video-page text-danger">
-                            Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Unverified"><i class="fas fa-frown text-danger"></i></a>
-                        </div>
-                        <div class="video-view">
-                            1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 mb-3">
-                <div class="video-card">
-                    <div class="video-card-image">
-                        <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                        <a href="#"><img class="img-fluid" src="~/img/v4.png" alt=""></a>
-                        <div class="time">3:50</div>
-                    </div>
-                    <div class="video-card-body">
-                        <div class="video-title">
-                            <a href="#">There are many variations of passages of Lorem</a>
-                        </div>
-                        <div class="video-page text-success">
-                            Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
-                        </div>
-                        <div class="video-view">
-                            1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 mb-3">
-                <div class="video-card">
-                    <div class="video-card-image">
-                        <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                        <a href="#"><img class="img-fluid" src="~/img/v5.png" alt=""></a>
-                        <div class="time">3:50</div>
-                    </div>
-                    <div class="video-card-body">
-                        <div class="video-title">
-                            <a href="#">There are many variations of passages of Lorem</a>
-                        </div>
-                        <div class="video-page text-success">
-                            Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
-                        </div>
-                        <div class="video-view">
-                            1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 mb-3">
-                <div class="video-card">
-                    <div class="video-card-image">
-                        <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                        <a href="#"><img class="img-fluid" src="~/img/v6.png" alt=""></a>
-                        <div class="time">3:50</div>
-                    </div>
-                    <div class="video-card-body">
-                        <div class="video-title">
-                            <a href="#">There are many variations of passages of Lorem</a>
-                        </div>
-                        <div class="video-page text-danger">
-                            Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Unverified"><i class="fas fa-frown text-danger"></i></a>
-                        </div>
-                        <div class="video-view">
-                            1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 mb-3">
-                <div class="video-card">
-                    <div class="video-card-image">
-                        <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                        <a href="#"><img class="img-fluid" src="~/img/v7.png" alt=""></a>
-                        <div class="time">3:50</div>
-                    </div>
-                    <div class="video-card-body">
-                        <div class="video-title">
-                            <a href="#">There are many variations of passages of Lorem</a>
-                        </div>
-                        <div class="video-page text-success">
-                            Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
-                        </div>
-                        <div class="video-view">
-                            1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 mb-3">
-                <div class="video-card">
-                    <div class="video-card-image">
-                        <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                        <a href="#"><img class="img-fluid" src="~/img/v8.png" alt=""></a>
-                        <div class="time">3:50</div>
-                    </div>
-                    <div class="video-card-body">
-                        <div class="video-title">
-                            <a href="#">There are many variations of passages of Lorem</a>
-                        </div>
-                        <div class="video-page text-success">
-                            Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
-                        </div>
-                        <div class="video-view">
-                            1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
-                        </div>
-                    </div>
-                </div>
-            </div>
+            } *@
         </div>
     </div>
+
     <hr class="mt-0">
+
     <div class="video-block section-padding">
         <div class="row">
             <div class="col-md-12">
@@ -252,6 +118,7 @@
                     <h6>Popular Channels</h6>
                 </div>
             </div>
+
             @foreach (var user in Model.users)
             {
                 <div class="col-xl-3 col-sm-6 mb-3">
@@ -259,10 +126,11 @@
                         <div class="channels-card-image">
                             <a href="#"><img class="img-fluid" src="~/img/s1.png" alt=""></a>
                             <div class="channels-card-image-btn">
+                                
                                 @if (User.Identity.IsAuthenticated)
                                 {
                                     var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                                    if (user.Followers != null && user.Followers.Any(f => f.FollowerId == currentUserId))
+                                    if (user.Followers.Any(f => f.FollowerId == currentUserId))
                                     {
                                         <form asp-action="Unfollow" asp-controller="Following" method="post">
                                             <input type="hidden" name="id" value="@user.Id" />
@@ -277,6 +145,13 @@
                                         </form>
                                     }
                                 }
+                                else
+                                {
+                                    <form asp-action="Login" asp-controller="Account" method="post">
+                                        
+                                        <button class="btn btn-outline-danger btn-sm">Follow</button>
+                                    </form>
+                                }
                             </div>
                         </div>
                         <div class="channels-card-body">
@@ -284,35 +159,34 @@
                                 <a href="#">@user.UserName</a>
                             </div>
                             <div class="channels-view">
-                                @user.Followers.Count subscribers
+                                @user.Followers.Count() subscribers
                             </div>
                         </div>
                     </div>
-                    @if (user.Followers != null && user.Followers.Any())
+
+                    @if (user.Followers.Any())
                     {
                         <h3>Followers</h3>
                         <ul>
                             @foreach (var follower in user.Followers)
                             {
-                                
                                 <li>@follower.Follower.UserName</li>
                             }
                         </ul>
                     }
-                    @if (user.Followees != null && user.Followees.Any())
+
+                    @if (user.Followees.Any())
                     {
                         <h3>Following</h3>
                         <ul>
                             @foreach (var followee in user.Followees)
                             {
-                                <li>@followee?.Followee?.UserName</li>
+                                <li>@followee.Followee.UserName</li>
                             }
                         </ul>
                     }
                 </div>
             }
-
-          
         </div>
     </div>
 </div>

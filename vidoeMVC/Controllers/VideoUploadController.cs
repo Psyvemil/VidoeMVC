@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using vidoeMVC.ViewModels;
 
 namespace vidoeMVC.Controllers
 {
@@ -6,7 +7,8 @@ namespace vidoeMVC.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var homewm =new HomeVM();
+            return View(homewm);
         }
     }
 }

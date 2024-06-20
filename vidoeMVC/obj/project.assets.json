@@ -8018,11 +8018,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\vidoeMVC\\vidoeMVC.csproj",
+      "projectUniqueName": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\vidoeMVC.csproj",
       "projectName": "vidoeMVC",
-      "projectPath": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\vidoeMVC\\vidoeMVC.csproj",
+      "projectPath": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\vidoeMVC.csproj",
       "packagesPath": "C:\\Users\\Emil\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\vidoeMVC\\obj\\",
+      "outputPath": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Emil\\AppData\\Roaming\\NuGet\\NuGet.Config",

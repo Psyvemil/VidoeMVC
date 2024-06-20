@@ -1,8 +1,8 @@
-﻿
+﻿@using System.Security.Claims
 @{
     ViewData["Title"] = "Index";
 }
-@model List<UserVM>
+@model HomeVM
 <div class="container-fluid pb-0">
     <div class="video-block section-padding">
         <div class="row">
@@ -21,32 +21,65 @@
                     <h6>Channels</h6>
                 </div>
             </div>
-            @foreach (var follovers in Model)
+          @*   @foreach (var follovers in Model.users)
             {
-            <div class="col-xl-3 col-sm-6 mb-3">
-                <div class="channels-card">
-                    <div class="channels-card-image">
-                        <a href="#"><img class="img-fluid" src="img/s1.png" alt=""></a>
+
+                <div class="col-xl-3 col-sm-6 mb-3">
+                    <div class="channels-card">
+                        <div class="channels-card-image">
+                            <a href="#"><img class="img-fluid" src="img/s1.png" alt=""></a>
                             <div class="channels-card-image-btn">
                                 <form asp-action="Unfollow" asp-controller="Following" method="post">
                                     <input type="hidden" name="id" value="@follovers.Id" />
-                                <button type="submit" class="btn btn-outline-secondary btn-sm" >@follovers.Followers.Count Subscribed <strong></strong></button>
-                                    </form>
-                                </div>
-                    </div>
-                    <div class="channels-card-body">
-                        <div class="channels-title">
-                            <a href="#">@follovers.UserName</a>
+                                    <button type="submit" class="btn btn-outline-secondary btn-sm">@follovers.Followers.Count Subscribed <strong></strong></button>
+                                </form>
+                            </div>
                         </div>
-                        <div class="channels-view">
-                            @follovers.Followers.Count subscribers
+                        <div class="channels-card-body">
+                            <div class="channels-title">
+                                <a href="#">@follovers.UserName</a>
+                            </div>
+                            <div class="channels-view">
+                                @follovers.Followers.Count subscribers
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-                
+
+            } *@
+            @foreach (var user in Model.users)
+            {
+                var followeers = user.Followers.Select(f => f.Follower).ToList();
+                if (followeers.Any ())
+                {
+                    foreach (var followrs in followeers)
+                    {
+                       
+                            <div class="col-xl-3 col-sm-6 mb-3">
+                                <div class="channels-card">
+                                    <div class="channels-card-image">
+                                        <a href="#"><img class="img-fluid" src="img/s1.png" alt=""></a>
+                                        <div class="channels-card-image-btn">
+                                            <form asp-action="Unfollow" asp-controller="Following" method="post">
+                                                <input type="hidden" name="id" value="@user.Id" />
+                                                <button type="submit" class="btn btn-outline-secondary btn-sm">@user.Followers.Count Subscribed <strong></strong></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="channels-card-body">
+                                        <div class="channels-title">
+                                            <a href="#">@user.UserName</a>
+                                        </div>
+                                        <div class="channels-view">
+                                            @user.Followers.Count subscribers
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                    }
+                }
             }
-           
         </div>
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center pagination-sm mb-4">

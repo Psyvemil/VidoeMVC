@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims
+@model HomeVM
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -16,10 +18,9 @@
     <!-- Custom styles for this template-->
     <link href="~/css/osahan.css" rel="stylesheet">
     <!-- Owl Carousel -->
-
     <link rel="stylesheet" href="~/vendor/owl-carousel/owl.carousel.css">
     <link rel="stylesheet" href="~/vendor/owl-carousel/owl.theme.css">
-    <!--font-->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body id="page-top">
@@ -75,35 +76,24 @@
             <li class="nav-item dropdown no-arrow osahan-right-navbar-user">
                 @if (User.Identity.IsAuthenticated)
                 {
-                <a class="nav-link dropdown-toggle user-dropdown-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img alt="Avatar" src="~/img/user.png">
-                    @User.Identity.Name
-                </a>
-                
-               
-                
-
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="account.html"><i class="fas fa-fw fa-user-circle"></i> &nbsp; My Account</a>
-
-                    <a class="dropdown-item" href="subscriptions.html"><i class="fas fa-fw fa-video"></i> &nbsp; Subscriptions</a>
-                    <a class="dropdown-item" href="settings.html"><i class="fas fa-fw fa-cog"></i> &nbsp; Settings</a>
-                    <div class="dropdown-divider"></div>
-                    
-                    <a class="dropdown-item" asp-action="Logout" asp-controller="Account"><i class="fas fa-fw fa-sign-out-alt"></i> &nbsp; Logout</a>
-
+                    <a class="nav-link dropdown-toggle user-dropdown-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img alt="Avatar" src="~/img/user.png">
+                        @User.Identity.Name
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="account.html"><i class="fas fa-fw fa-user-circle"></i> &nbsp; My Account</a>
+                        <a class="dropdown-item" href="subscriptions.html"><i class="fas fa-fw fa-video"></i> &nbsp; Subscriptions</a>
+                        <a class="dropdown-item" href="settings.html"><i class="fas fa-fw fa-cog"></i> &nbsp; Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" asp-action="Logout" asp-controller="Account"><i class="fas fa-fw fa-sign-out-alt"></i> &nbsp; Logout</a>
                     </div>
                 }
                 else
                 {
-                    <a class="nav-link dropdown-toggle user-dropdown-link" asp-action="Login" asp-controller="Account" role="button"  aria-haspopup="true" aria-expanded="false">
-                      
+                    <a class="nav-link dropdown-toggle user-dropdown-link" asp-action="Login" asp-controller="Account" role="button" aria-haspopup="true" aria-expanded="false">
                         Login/Register
                     </a>
                 }
-
-
-                
             </li>
         </ul>
     </nav>
@@ -116,37 +106,40 @@
                     <span>Home</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-controller="MySubscription" asp-action="Index">
-                    <i class="fas fa-fw fa-users"></i>
-                    <span>Subscription</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-controller="MyChannel" asp-action="index">
-                    <i class="fas fa-fw fa-user-alt"></i>
-                    <span>My Channel</span>
-                </a>
-            </li>
-           
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa-solid fa-bars"></i>
-                    <span>Playlists</span>
-                </a>
-                <div class="dropdown-menu">
-
-                    <h6 class="dropdown-header"><a asp-controller="Plasylist" asp-action="index">All playlists:</a></h6>
-                    <a class="dropdown-item" href="login.html">Login</a>
-                    
-                </div>
-            </li>
             @if (User.Identity.IsAuthenticated)
             {
                 <li class="nav-item">
-                    <a class="nav-link" asp-controller="VideoUpload" asp-action="Index">
+                    <a class="nav-link" asp-controller="MySubscription" asp-action="Index">
+                        <i class="fas fa-fw fa-users"></i>
+                        <span>Subscription</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="MyChannel" asp-action="Index">
+                        <i class="fas fa-fw fa-user-alt"></i>
+                        <span>My Channel</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa-solid fa-bars"></i>
+                        <span>Playlists</span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <h6 class="dropdown-header"><a asp-controller="Playlist" asp-action="Index">All playlists:</a></h6>
+                        <a class="dropdown-item" href="login.html">Login</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="VideoUpload" asp-action="Index" asp-route-id="">
                         <i class="fas fa-fw fa-cloud-upload-alt"></i>
                         <span>Upload Video</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="history-page.html">
+                        <i class="fas fa-fw fa-history"></i>
+                        <span>History Page</span>
                     </a>
                 </li>
             }
@@ -154,34 +147,29 @@
             {
                 <li class="nav-item">
                     <a class="nav-link" asp-controller="Account" asp-action="Login">
+                        <i class="fas fa-fw fa-users"></i>
+                        <span>Subscription</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Account" asp-action="Login">
+                        <i class="fas fa-fw fa-user-alt"></i>
+                        <span>My Channel</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Account" asp-action="Login">
                         <i class="fas fa-fw fa-cloud-upload-alt"></i>
                         <span>Upload Video</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Account" asp-action="Login">
+                        <i class="fas fa-fw fa-history"></i>
+                        <span>History Page</span>
+                    </a>
+                </li>
             }
-            
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div class="dropdown-menu">
-                    <h6 class="dropdown-header">Login Screens:</h6>
-                    <a class="dropdown-item" href="login.html">Login</a>
-                    <a class="dropdown-item" href="register.html">Register</a>
-                    <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-                    <div class="dropdown-divider"></div>
-                    <h6 class="dropdown-header">Other Pages:</h6>
-                    <a class="dropdown-item" href="404.html">404 Page</a>
-                    <a class="dropdown-item" href="blank.html">Blank Page</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="history-page.html">
-                    <i class="fas fa-fw fa-history"></i>
-                    <span>History Page</span>
-                </a>
-            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="categories.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-fw fa-list-alt"></i>
@@ -193,34 +181,36 @@
                     <a class="dropdown-item" href="categories.html">Television</a>
                 </div>
             </li>
-            <li class="nav-item channel-sidebar-list">
-                <h6>Subscription</h6>
-                <ul>
-                    <li>
-                        <a href="subscriptions.html">
-                            <img class="img-fluid" alt="" src="~/img/s1.png"> Your Life
-                        </a>
-                    </li>
-                    <li>
-                        <a href="subscriptions.html">
-                            <img class="img-fluid" alt="" src="~/img/s2.png"> Unboxing  <span class="badge badge-warning">2</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="subscriptions.html">
-                            <img class="img-fluid" alt="" src="~/img/s3.png"> Product / Service
-                        </a>
-                    </li>
-                    <li>
-                        <a href="subscriptions.html">
-                            <img class="img-fluid" alt="" src="~/img/s4.png">  Gaming
-                        </a>
-                    </li>
-                </ul>
-            </li>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="nav-item channel-sidebar-list">
+                    <h6>Subscription</h6>
+                    <ul>
+                        @foreach (var user in Model.users)
+                        {
+                            var followeers = user.Followers.Select(f => f.Follower).ToList();
+                            if (followeers.Any())
+                            {
+                                foreach (var followrs in followeers)
+                                {
+                                    if (followrs.Id == User.FindFirstValue(ClaimTypes.NameIdentifier))
+                                    {
+                                        <li>
+                                            <a href="subscriptions.html">
+                                                <img class="img-fluid" alt="" src="~/img/s1.png"> @user.UserName
+                                            </a>
+                                            
+                                        </li>
+                                    }
+                                }
+                            }
+                        }
+                    </ul>
+                </li>
+            }
         </ul>
         <div id="content-wrapper">
-        @RenderBody()
+            @RenderBody()
             <!-- Sticky Footer -->
             <footer class="sticky-footer">
                 <div class="container">

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6+KlfbtxfRJlNlJHKNhcqVo1rN+b+Ld/5490KHan9JPsIVfEXZfMMfJu0jWZdARDD3qOnK+whu9vTixiZ1MPqw==",
+  "dgSpecHash": "t5vJ7hGj8k1qQIyAPXp4V+8M/rQ2/Sc+1XyQkoQico6mZqzvFOqB99KxWe/DF8BZxPmP4JDz+C0PPSj+tZFaFg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\vidoeMVC\\vidoeMVC.csproj",
+  "projectFilePath": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\vidoeMVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Emil\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Emil\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

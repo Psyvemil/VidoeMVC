@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using vidoeMVC.Models;
+using vidoeMVC.ViewModels;
 using vidoeMVC.ViewModels.Users;
 
 namespace vidoeMVC.Controllers
@@ -18,7 +19,14 @@ namespace vidoeMVC.Controllers
                 Followees = u.Followees
 
             }).ToListAsync();
-            return View(users);
+
+            var homeVM = new HomeVM
+            {
+
+                users = users
+            };
+
+            return View(homeVM);
         }
     }
 }
