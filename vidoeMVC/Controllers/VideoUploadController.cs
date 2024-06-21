@@ -1,14 +1,34 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using vidoeMVC.Models;
 using vidoeMVC.ViewModels;
+using vidoeMVC.ViewModels.Users;
 
 namespace vidoeMVC.Controllers
 {
-    public class VideoUploadController : Controller
+    public class VideoUploadController(UserManager<AppUser> _userManager) : Controller
     {
-        public IActionResult Index()
+        public async Task <IActionResult> Index()
         {
-            var homewm =new HomeVM();
-            return View(homewm);
+            var appUsers = await _userManager.Users
+              .Include(u => u.Followers)
+              .ThenInclude(f => f.Follower)
+              
+              .Select(u => new UserVM
+              {
+                  UserName = u.UserName,
+                  Id = u.Id,
+                  Followers = u.Followers ?? new List<UserFollow>(),
+                  Followees = u.Followees ?? new List<UserFollow>()
+              }).ToListAsync();
+
+            var homeVM = new HomeVM
+            {
+
+                users = appUsers
+            };
+            return View(homeVM);
         }
     }
 }

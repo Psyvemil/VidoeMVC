@@ -50,7 +50,7 @@ namespace vidoeMVC.Controllers
                 _context.UserFollows.Remove(follow);
                 await _context.SaveChangesAsync();
             }
-
+           
             return RedirectToAction(nameof(Index), "Home");
         }
     }
