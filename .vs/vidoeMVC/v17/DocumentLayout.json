@@ -3,44 +3,112 @@
   "WorkspaceRootPath": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|c:\\users\\emil\\desktop\\proje\\vidoemvc\\vidoemvc\\vidoemvc\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|c:\\users\\emil\\desktop\\proje\\vidoemvc\\vidoemvc\\vidoemvc\\viewmodels\\videos\\videouploadvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\viewmodels\\videos\\videouploadvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoemvc\\controllers\\videouploadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\controllers\\videouploadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoemvc\\views\\videoupload\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\views\\videoupload\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|c:\\users\\emil\\desktop\\proje\\vidoemvc\\vidoemvc\\vidoemvc\\models\\video.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\models\\video.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|c:\\users\\emil\\desktop\\proje\\vidoemvc\\vidoemvc\\vidoemvc\\models\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoemvc\\models\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\models\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|c:\\users\\emil\\desktop\\proje\\vidoemvc\\vidoemvc\\vidoemvc\\controllers\\followingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\controllers\\followingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|c:\\users\\emil\\desktop\\proje\\vidoemvc\\vidoemvc\\vidoemvc\\views\\shared\\_layout1.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\views\\shared\\_layout1.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|c:\\users\\emil\\desktop\\proje\\vidoemvc\\vidoemvc\\vidoemvc\\views\\mysubscription\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\views\\mysubscription\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|c:\\users\\emil\\desktop\\proje\\vidoemvc\\vidoemvc\\vidoemvc\\controllers\\videouploadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\controllers\\videouploadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Migrations\\20240622151611_videoAndTag111.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:vidoeMVC\\Migrations\\20240622151611_videoAndTag111.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoemvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|c:\\users\\emil\\desktop\\proje\\vidoemvc\\vidoemvc\\vidoemvc\\views\\videoupload\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\views\\videoupload\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|c:\\users\\emil\\desktop\\proje\\vidoemvc\\vidoemvc\\vidoemvc\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoemvc\\controllers\\mychannelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\controllers\\mychannelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|c:\\users\\emil\\desktop\\proje\\vidoemvc\\vidoemvc\\vidoemvc\\viewmodels\\homevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\viewmodels\\homevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|c:\\users\\emil\\desktop\\proje\\vidoemvc\\vidoemvc\\vidoemvc\\views\\videoupload\\uploadvideo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\views\\videoupload\\uploadvideo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|c:\\users\\emil\\desktop\\proje\\vidoemvc\\vidoemvc\\vidoemvc\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|c:\\users\\emil\\desktop\\proje\\vidoemvc\\vidoemvc\\vidoemvc\\services\\cloudinaryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\services\\cloudinaryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoemvc\\views\\mychannel\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\views\\mychannel\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|c:\\users\\emil\\desktop\\proje\\vidoemvc\\vidoemvc\\vidoemvc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Migrations\\20240622131028_videoAndTag11.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:vidoeMVC\\Migrations\\20240622131028_videoAndTag11.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|c:\\users\\emil\\desktop\\proje\\vidoemvc\\vidoemvc\\vidoemvc\\dal\\vidoedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\dal\\vidoedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|c:\\users\\emil\\desktop\\proje\\vidoemvc\\vidoemvc\\vidoemvc\\migrations\\20240614094956_edit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\migrations\\20240614094956_edit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Migrations\\20240622130618_videoAndTag1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:vidoeMVC\\Migrations\\20240622130618_videoAndTag1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Migrations\\20240622125402_videoAndTag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:vidoeMVC\\Migrations\\20240622125402_videoAndTag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|c:\\users\\emil\\desktop\\proje\\vidoemvc\\vidoemvc\\vidoemvc\\models\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\models\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|c:\\users\\emil\\desktop\\proje\\vidoemvc\\vidoemvc\\vidoemvc\\models\\tag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\models\\tag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Migrations\\20240622120143_videoAndTag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:vidoeMVC\\Migrations\\20240622120143_videoAndTag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|c:\\users\\emil\\desktop\\proje\\vidoemvc\\vidoemvc\\vidoemvc\\enums\\language.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\enums\\language.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|c:\\users\\emil\\desktop\\proje\\vidoemvc\\vidoemvc\\vidoemvc\\enums\\videostatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\enums\\videostatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoemvc\\controllers\\followingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\controllers\\followingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoemvc\\controllers\\mychannelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\controllers\\mychannelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,50 +118,340 @@
       "DocumentGroups": [
         {
           "DockedWidth": 320,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Category.cs",
-              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Models\\Category.cs",
-              "RelativeDocumentMoniker": "vidoeMVC\\Models\\Category.cs",
-              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Models\\Category.cs",
-              "RelativeToolTip": "vidoeMVC\\Models\\Category.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAA2AAAA",
+              "DocumentIndex": 3,
+              "Title": "Video.cs",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Models\\Video.cs",
+              "RelativeDocumentMoniker": "vidoeMVC\\Models\\Video.cs",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Models\\Video.cs",
+              "RelativeToolTip": "vidoeMVC\\Models\\Video.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAkAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T13:31:23.988Z",
+              "WhenOpened": "2024-06-22T15:13:19.451Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_Layout1.cshtml",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Views\\Shared\\_Layout1.cshtml",
+              "RelativeDocumentMoniker": "vidoeMVC\\Views\\Shared\\_Layout1.cshtml",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Views\\Shared\\_Layout1.cshtml",
+              "RelativeToolTip": "vidoeMVC\\Views\\Shared\\_Layout1.cshtml",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-22T15:01:06.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "VideoUploadController.cs",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Controllers\\VideoUploadController.cs",
+              "RelativeDocumentMoniker": "vidoeMVC\\Controllers\\VideoUploadController.cs",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Controllers\\VideoUploadController.cs",
+              "RelativeToolTip": "vidoeMVC\\Controllers\\VideoUploadController.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAAADsAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T10:37:12.68Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Views\\VideoUpload\\Index.cshtml",
+              "RelativeDocumentMoniker": "vidoeMVC\\Views\\VideoUpload\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Views\\VideoUpload\\Index.cshtml",
+              "RelativeToolTip": "vidoeMVC\\Views\\VideoUpload\\Index.cshtml",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAADMAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-21T10:40:28.976Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VideoUploadVM.cs",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\ViewModels\\Videos\\VideoUploadVM.cs",
+              "RelativeDocumentMoniker": "vidoeMVC\\ViewModels\\Videos\\VideoUploadVM.cs",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\ViewModels\\Videos\\VideoUploadVM.cs",
+              "RelativeToolTip": "vidoeMVC\\ViewModels\\Videos\\VideoUploadVM.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAUwBUAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-22T13:01:35.124Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "AppUser.cs",
               "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Models\\AppUser.cs",
               "RelativeDocumentMoniker": "vidoeMVC\\Models\\AppUser.cs",
               "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Models\\AppUser.cs",
               "RelativeToolTip": "vidoeMVC\\Models\\AppUser.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAAAgwA0AAAAOAAAA",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAYwAkAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-21T13:27:36.755Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Video.cs",
-              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Models\\Video.cs",
-              "RelativeDocumentMoniker": "vidoeMVC\\Models\\Video.cs",
-              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Models\\Video.cs",
-              "RelativeToolTip": "vidoeMVC\\Models\\Video.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAmAAAA",
+              "DocumentIndex": 6,
+              "Title": "20240622151611_videoAndTag111.cs",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Migrations\\20240622151611_videoAndTag111.cs",
+              "RelativeDocumentMoniker": "vidoeMVC\\Migrations\\20240622151611_videoAndTag111.cs",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Migrations\\20240622151611_videoAndTag111.cs",
+              "RelativeToolTip": "vidoeMVC\\Migrations\\20240622151611_videoAndTag111.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T13:26:02.58Z",
+              "WhenOpened": "2024-06-22T15:16:12.171Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "vidoeMVC\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "vidoeMVC\\Views\\_ViewImports.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-22T13:41:08.583Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "vidoeMVC\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "vidoeMVC\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAPsAAAAAAAAAAAAAAA8BAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-20T13:46:15.729Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "HomeVM.cs",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\ViewModels\\HomeVM.cs",
+              "RelativeDocumentMoniker": "vidoeMVC\\ViewModels\\HomeVM.cs",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\ViewModels\\HomeVM.cs",
+              "RelativeToolTip": "vidoeMVC\\ViewModels\\HomeVM.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAADwvw0AAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-22T14:08:19.318Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UploadVideo.cshtml",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Views\\VideoUpload\\UploadVideo.cshtml",
+              "RelativeDocumentMoniker": "vidoeMVC\\Views\\VideoUpload\\UploadVideo.cshtml",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Views\\VideoUpload\\UploadVideo.cshtml",
+              "RelativeToolTip": "vidoeMVC\\Views\\VideoUpload\\UploadVideo.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-22T13:31:36.631Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "vidoeMVC\\Models\\Category.cs",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Models\\Category.cs",
+              "RelativeToolTip": "vidoeMVC\\Models\\Category.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T13:31:23.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CloudinaryService.cs",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Services\\CloudinaryService.cs",
+              "RelativeDocumentMoniker": "vidoeMVC\\Services\\CloudinaryService.cs",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Services\\CloudinaryService.cs",
+              "RelativeToolTip": "vidoeMVC\\Services\\CloudinaryService.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAgAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-22T13:25:42.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Views\\MyChannel\\Index.cshtml",
+              "RelativeDocumentMoniker": "vidoeMVC\\Views\\MyChannel\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Views\\MyChannel\\Index.cshtml",
+              "RelativeToolTip": "vidoeMVC\\Views\\MyChannel\\Index.cshtml",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAYAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-20T13:45:25.93Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Program.cs",
+              "RelativeDocumentMoniker": "vidoeMVC\\Program.cs",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Program.cs",
+              "RelativeToolTip": "vidoeMVC\\Program.cs",
+              "ViewState": "AQIAACYAAAAAAAAAAAAAAC0AAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-22T13:18:46.801Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "20240622131028_videoAndTag11.cs",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Migrations\\20240622131028_videoAndTag11.cs",
+              "RelativeDocumentMoniker": "vidoeMVC\\Migrations\\20240622131028_videoAndTag11.cs",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Migrations\\20240622131028_videoAndTag11.cs",
+              "RelativeToolTip": "vidoeMVC\\Migrations\\20240622131028_videoAndTag11.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-22T13:10:28.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "20240614094956_edit.cs",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Migrations\\20240614094956_edit.cs",
+              "RelativeDocumentMoniker": "vidoeMVC\\Migrations\\20240614094956_edit.cs",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Migrations\\20240614094956_edit.cs",
+              "RelativeToolTip": "vidoeMVC\\Migrations\\20240614094956_edit.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-22T13:07:55.041Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "20240622130618_videoAndTag1.cs",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Migrations\\20240622130618_videoAndTag1.cs",
+              "RelativeDocumentMoniker": "vidoeMVC\\Migrations\\20240622130618_videoAndTag1.cs",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Migrations\\20240622130618_videoAndTag1.cs",
+              "RelativeToolTip": "vidoeMVC\\Migrations\\20240622130618_videoAndTag1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-22T13:06:18.64Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "20240622125402_videoAndTag.cs",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Migrations\\20240622125402_videoAndTag.cs",
+              "RelativeDocumentMoniker": "vidoeMVC\\Migrations\\20240622125402_videoAndTag.cs",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Migrations\\20240622125402_videoAndTag.cs",
+              "RelativeToolTip": "vidoeMVC\\Migrations\\20240622125402_videoAndTag.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-22T12:54:03.087Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "VidoeDBContext.cs",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\DAL\\VidoeDBContext.cs",
+              "RelativeDocumentMoniker": "vidoeMVC\\DAL\\VidoeDBContext.cs",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\DAL\\VidoeDBContext.cs",
+              "RelativeToolTip": "vidoeMVC\\DAL\\VidoeDBContext.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAswCkAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-22T11:53:10.625Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "BaseEntity.cs",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Models\\BaseEntity.cs",
+              "RelativeDocumentMoniker": "vidoeMVC\\Models\\BaseEntity.cs",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Models\\BaseEntity.cs",
+              "RelativeToolTip": "vidoeMVC\\Models\\BaseEntity.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAowBEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-22T12:08:49.45Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Tag.cs",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Models\\Tag.cs",
+              "RelativeDocumentMoniker": "vidoeMVC\\Models\\Tag.cs",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Models\\Tag.cs",
+              "RelativeToolTip": "vidoeMVC\\Models\\Tag.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-22T10:57:38.802Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "20240622120143_videoAndTag.cs",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Migrations\\20240622120143_videoAndTag.cs",
+              "RelativeDocumentMoniker": "vidoeMVC\\Migrations\\20240622120143_videoAndTag.cs",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Migrations\\20240622120143_videoAndTag.cs",
+              "RelativeToolTip": "vidoeMVC\\Migrations\\20240622120143_videoAndTag.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-22T12:01:43.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Language.cs",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Enums\\Language.cs",
+              "RelativeDocumentMoniker": "vidoeMVC\\Enums\\Language.cs",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Enums\\Language.cs",
+              "RelativeToolTip": "vidoeMVC\\Enums\\Language.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-22T11:11:04.918Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "VideoStatus.cs",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Enums\\VideoStatus.cs",
+              "RelativeDocumentMoniker": "vidoeMVC\\Enums\\VideoStatus.cs",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Enums\\VideoStatus.cs",
+              "RelativeToolTip": "vidoeMVC\\Enums\\VideoStatus.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-22T10:22:15.844Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
               "Title": "FollowingController.cs",
               "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Controllers\\FollowingController.cs",
               "RelativeDocumentMoniker": "vidoeMVC\\Controllers\\FollowingController.cs",
@@ -106,75 +464,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Views\\VideoUpload\\Index.cshtml",
-              "RelativeDocumentMoniker": "vidoeMVC\\Views\\VideoUpload\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Views\\VideoUpload\\Index.cshtml",
-              "RelativeToolTip": "vidoeMVC\\Views\\VideoUpload\\Index.cshtml",
-              "ViewState": "AQIAAA8BAAAAAAAAAAAAABcBAAADAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-21T10:40:28.976Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Views\\MySubscription\\Index.cshtml",
-              "RelativeDocumentMoniker": "vidoeMVC\\Views\\MySubscription\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Views\\MySubscription\\Index.cshtml",
-              "RelativeToolTip": "vidoeMVC\\Views\\MySubscription\\Index.cshtml",
-              "ViewState": "AQIAADgAAAAAAAAAAAAAABgAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-20T13:54:12.067Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "VideoUploadController.cs",
-              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Controllers\\VideoUploadController.cs",
-              "RelativeDocumentMoniker": "vidoeMVC\\Controllers\\VideoUploadController.cs",
-              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Controllers\\VideoUploadController.cs",
-              "RelativeToolTip": "vidoeMVC\\Controllers\\VideoUploadController.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAqwAsAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T10:37:12.68Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "vidoeMVC\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "vidoeMVC\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAALAAAAAAAAAAAAAAANEAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-20T13:46:15.729Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Views\\MyChannel\\Index.cshtml",
-              "RelativeDocumentMoniker": "vidoeMVC\\Views\\MyChannel\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Views\\MyChannel\\Index.cshtml",
-              "RelativeToolTip": "vidoeMVC\\Views\\MyChannel\\Index.cshtml",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAYAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-20T13:45:25.93Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 26,
               "Title": "MyChannelController.cs",
               "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Controllers\\MyChannelController.cs",
               "RelativeDocumentMoniker": "vidoeMVC\\Controllers\\MyChannelController.cs",

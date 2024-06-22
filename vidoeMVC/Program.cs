@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using CloudinaryDotNet;
 using vidoeMVC.DAL;
-using vidoeMVC.Enums;
 using vidoeMVC.Models;
+using System.Threading.Tasks;
+using vidoeMVC.Services;
 
 namespace vidoeMVC
 {
@@ -13,12 +15,13 @@ namespace vidoeMVC
         {
             var builder = WebApplication.CreateBuilder(args);
 
-           
             builder.Services.AddControllersWithViews();
 
+            // Configure DbContext
             builder.Services.AddDbContext<VidoeDBContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("CodeFirst")));
 
+            // Configure Identity
             builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
             {
                 opt.User.RequireUniqueEmail = true;
@@ -31,12 +34,19 @@ namespace vidoeMVC
             .AddEntityFrameworkStores<VidoeDBContext>()
             .AddDefaultTokenProviders();
 
+            // Add Cloudinary configuration
+            var cloudinaryConfig = builder.Configuration.GetSection("Cloudinary");
+            var cloudinaryAccount = new Account(
+                cloudinaryConfig["CloudName"],
+                cloudinaryConfig["ApiKey"],
+                cloudinaryConfig["ApiSecret"]
+            );
+
+            builder.Services.AddSingleton(new Cloudinary(cloudinaryAccount));
+            builder.Services.AddTransient<CloudinaryService>();
+
             var app = builder.Build();
 
-        
-            
-
-            
             app.UseStaticFiles();
 
             app.UseRouting();
@@ -51,7 +61,5 @@ namespace vidoeMVC
 
             app.Run();
         }
-
-       
     }
 }

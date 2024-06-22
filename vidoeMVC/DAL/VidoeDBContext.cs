@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
 using vidoeMVC.Models;
 
 
@@ -12,8 +13,10 @@ namespace vidoeMVC.DAL
         }
         public DbSet<Category> Categories { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
-
         public DbSet<UserFollow> UserFollows { get; set; }
+        public DbSet<Video> Videos { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -33,6 +36,12 @@ namespace vidoeMVC.DAL
                 .WithMany(u => u.Followers)
                 .HasForeignKey(uf => uf.FolloweeId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<Video>()
+          .HasOne(v => v.Author)
+          .WithMany(a => a.Videos);
+          
+
         }
     }
 }

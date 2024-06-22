@@ -516,3 +516,4 @@ C:\Users\Emil\Desktop\proje\vidoeMVC\VidoeMVC\vidoeMVC\obj\Debug\net8.0\refint\v
 C:\Users\Emil\Desktop\proje\vidoeMVC\VidoeMVC\vidoeMVC\obj\Debug\net8.0\vidoeMVC.pdb
 C:\Users\Emil\Desktop\proje\vidoeMVC\VidoeMVC\vidoeMVC\obj\Debug\net8.0\vidoeMVC.genruntimeconfig.cache
 C:\Users\Emil\Desktop\proje\vidoeMVC\VidoeMVC\vidoeMVC\obj\Debug\net8.0\ref\vidoeMVC.dll
+C:\Users\Emil\Desktop\proje\vidoeMVC\VidoeMVC\vidoeMVC\bin\Debug\net8.0\CloudinaryDotNet.dll

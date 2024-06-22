@@ -22,6 +22,21 @@ namespace vidoeMVC.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("CategoryVideo", b =>
+                {
+                    b.Property<int>("VCategoriesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VideosId")
+                        .HasColumnType("int");
+
+                    b.HasKey("VCategoriesId", "VideosId");
+
+                    b.HasIndex("VideosId");
+
+                    b.ToTable("CategoryVideo");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -229,6 +244,21 @@ namespace vidoeMVC.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("TagVideo", b =>
+                {
+                    b.Property<int>("TagsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VideosId")
+                        .HasColumnType("int");
+
+                    b.HasKey("TagsId", "VideosId");
+
+                    b.HasIndex("VideosId");
+
+                    b.ToTable("TagVideo");
+                });
+
             modelBuilder.Entity("vidoeMVC.Models.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -255,6 +285,32 @@ namespace vidoeMVC.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("vidoeMVC.Models.Tag", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tags");
+                });
+
             modelBuilder.Entity("vidoeMVC.Models.UserFollow", b =>
                 {
                     b.Property<string>("FollowerId")
@@ -268,6 +324,56 @@ namespace vidoeMVC.Migrations
                     b.HasIndex("FolloweeId");
 
                     b.ToTable("UserFollows");
+                });
+
+            modelBuilder.Entity("vidoeMVC.Models.Video", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AuthorId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Languages")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Privacy")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TumbnailUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("VideoUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AuthorId");
+
+                    b.ToTable("Videos");
                 });
 
             modelBuilder.Entity("vidoeMVC.Models.AppUser", b =>
@@ -285,7 +391,27 @@ namespace vidoeMVC.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("VideoId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("VideoId");
+
                     b.HasDiscriminator().HasValue("AppUser");
+                });
+
+            modelBuilder.Entity("CategoryVideo", b =>
+                {
+                    b.HasOne("vidoeMVC.Models.Category", null)
+                        .WithMany()
+                        .HasForeignKey("VCategoriesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("vidoeMVC.Models.Video", null)
+                        .WithMany()
+                        .HasForeignKey("VideosId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -339,6 +465,21 @@ namespace vidoeMVC.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("TagVideo", b =>
+                {
+                    b.HasOne("vidoeMVC.Models.Tag", null)
+                        .WithMany()
+                        .HasForeignKey("TagsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("vidoeMVC.Models.Video", null)
+                        .WithMany()
+                        .HasForeignKey("VideosId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("vidoeMVC.Models.UserFollow", b =>
                 {
                     b.HasOne("vidoeMVC.Models.AppUser", "Followee")
@@ -358,11 +499,36 @@ namespace vidoeMVC.Migrations
                     b.Navigation("Follower");
                 });
 
+            modelBuilder.Entity("vidoeMVC.Models.Video", b =>
+                {
+                    b.HasOne("vidoeMVC.Models.AppUser", "Author")
+                        .WithMany("Videos")
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Author");
+                });
+
+            modelBuilder.Entity("vidoeMVC.Models.AppUser", b =>
+                {
+                    b.HasOne("vidoeMVC.Models.Video", null)
+                        .WithMany("Cast")
+                        .HasForeignKey("VideoId");
+                });
+
+            modelBuilder.Entity("vidoeMVC.Models.Video", b =>
+                {
+                    b.Navigation("Cast");
+                });
+
             modelBuilder.Entity("vidoeMVC.Models.AppUser", b =>
                 {
                     b.Navigation("Followees");
 
                     b.Navigation("Followers");
+
+                    b.Navigation("Videos");
                 });
 #pragma warning restore 612, 618
         }
