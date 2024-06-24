@@ -1,5 +1,6 @@
 ﻿using vidoeMVC.Enums;
 using System.Collections.Generic;
+using Microsoft.Identity.Client;
 
 namespace vidoeMVC.Models
 {
@@ -10,11 +11,12 @@ namespace vidoeMVC.Models
         public string VideoUrl { get; set; }
         public string TumbnailUrl { get; set; }
         public string AuthorId { get; set; }
-        public AppUser Author { get; set; }
-        public VideoStatus Privacy { get; set; }  
-        public ICollection<Language>? Languages { get; set; }
-        public ICollection<Category>? VCategories { get; set; }
-        public ICollection<AppUser>? Cast { get; set; }
-        public ICollection<Tag>? Tags { get; set; }
+        public AppUser? Author { get; set; }
+        public List< VideoStatus>? Privacy { get; set; }  
+        public List<Language>? Languages { get; set; }
+        public ICollection<VideoCategory>? VCategories { get; set; }
+        public List<AppUser>? Cast { get; set; }
+        public ICollection<VideoTag>? Tags { get; set; }
+        public DateTime? DateCreated { get; set; }
     }
 }

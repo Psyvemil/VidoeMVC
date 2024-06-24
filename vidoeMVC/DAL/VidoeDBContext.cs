@@ -21,6 +21,7 @@ namespace vidoeMVC.DAL
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+           
 
             builder.Entity<UserFollow>()
                 .HasKey(uf => new { uf.FollowerId, uf.FolloweeId });
@@ -38,9 +39,35 @@ namespace vidoeMVC.DAL
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<Video>()
-          .HasOne(v => v.Author)
-          .WithMany(a => a.Videos);
-          
+                .HasOne(v => v.Author)
+                .WithMany(u => u.Videos)
+                .HasForeignKey(v => v.AuthorId)
+                .IsRequired();
+            builder.Entity<VideoTag>()
+              .HasKey(vt => new { vt.VideoId, vt.TagId });
+
+            builder.Entity<VideoCategory>()
+                .HasKey(vc => new { vc.VideoId, vc.CategoryId });
+
+            builder.Entity<Tag>()
+                .HasMany(t => t.VideoTags)
+                .WithOne(vt => vt.Tag)
+                .HasForeignKey(vt => vt.TagId);
+
+            builder.Entity<Video>()
+                .HasMany(v => v.Tags)
+                .WithOne(vt => vt.Video)
+                .HasForeignKey(vt => vt.VideoId);
+
+            builder.Entity<Category>()
+                .HasMany(c => c.VideoCategories)
+                .WithOne(vc => vc.Category)
+                .HasForeignKey(vc => vc.CategoryId);
+
+            builder.Entity<Video>()
+                .HasMany(v => v.VCategories)
+                .WithOne(vc => vc.Video)
+                .HasForeignKey(vc => vc.VideoId);
 
         }
     }

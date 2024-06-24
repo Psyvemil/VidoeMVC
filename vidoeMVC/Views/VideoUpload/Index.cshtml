@@ -1,10 +1,75 @@
-﻿@model VideoUploadVM
+﻿@model vidoeMVC.ViewModels.Videos.VideoUploadVM
+
 @{
     Layout = "_Layout1";
     ViewData["Title"] = "Upload Video";
 }
 
-<form asp-action="Index" asp-controller="VideoUpload" method="post" enctype="multipart/form-data">
+<h1>Upload Video</h1>
+
+@* <form asp-action="Index" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input asp-for="Title" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="video">Video File</label>
+        <input asp-for="Video" type="file" class="form-control-file" />
+    </div>
+    <div class="form-group">
+        <label for="thumbnail">Thumbnail Image</label>
+        <input asp-for="Tumbnail" type="file" class="form-control-file" />
+    </div>
+    <div class="form-group">
+        <label for="privacy">Privacy</label>
+        <select asp-for="videoStat" class="form-control">
+            <option value="0">Public</option>
+            <option value="1">Private</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="languages">Languages</label>
+        <select asp-for="LanguageIDs" class="form-control" multiple>
+            <option value="1">English</option>
+            <option value="2">Spanish</option>
+            <option value="3">French</option>
+            <!-- Add other languages as options -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="categories">Categories</label>
+        <select asp-for="CategoriesIDs" class="form-control" multiple>
+            <option value="1">Category 1</option>
+            <option value="2">Category 2</option>
+            <!-- Add other categories as options -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="tags">Tags</label>
+        <select asp-for="TagsIDs" class="form-control" multiple>
+            <option value="1">Tag 1</option>
+            <option value="2">Tag 2</option>
+            <!-- Add other tags as options -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="datetime">Date and Time</label>
+        <input asp-for="DateTime" type="datetime-local" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+</form> *@
+
+@* @* @model HomeVM *@
+@{
+    Layout = "_Layout1";
+    ViewData["Title"] = "Upload Video";
+}
+
+<form  method="post" enctype="multipart/form-data">
     <div id="content-wrapper">
         <div class="container-fluid upload-details">
             <div class="row">
@@ -12,8 +77,13 @@
                     <div class="main-title">
                         <div class="form-group">
                             
-                            <label asp-for="AuthorId"></label>
-                            <input asp-for="AuthorId" value="@Model.AuthorId" type="text" name="Title" placeholder="Contrary to popular belief, Lorem Ipsum (2019) is not." id="title" class="form-control">
+                            <label asp-for="Video"></label>
+                            <input asp-for="Video"  name="Title" placeholder="Contrary to popular belief, Lorem Ipsum (2019) is not." id="title" class="form-control">
+                        </div>
+                        <div class="form-group">
+
+                            <label asp-for="Tumbnail"></label>
+                            <input asp-for="Tumbnail"  name="Title" placeholder="Contrary to popular belief, Lorem Ipsum (2019) is not." id="title" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -39,15 +109,46 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label asp-for="Video">Upload Video</label>
-                                    <input type="file" asp-for="Video" name="videoFile" id="videoFile" class="form-control">
+                                    <label asp-for="AuthorId">Author</label>
+                                    <input  asp-for="AuthorId" name="videoFile" id="videoFile" class="form-control">
                                 </div>
                             </div>
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <label asp-for="Tumbnail">Upload Thumbnail</label>
-                                    <input type="file" asp-for="Tumbnail" name="thumbnailFile" id="thumbnailFile" class="form-control">
-                                </div>
+                            <div class="form-group">
+                                <label for="privacy">Privacy</label>
+                                <select asp-for="videoStat" class="form-control">
+                                    <option value="0">Public</option>
+                                    <option value="1">Private</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="languages">Languages</label>
+                                <select asp-for="LanguageIDs" class="form-control" multiple>
+                                    
+                                    <option value="1">English</option>
+                                    <option value="2">Spanish</option>
+                                    <option value="3">French</option>
+                                    <!-- Add other languages as options -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="categories">Categories</label>
+                                <select asp-for="CategoriesIDs" class="form-control" multiple>
+                                    <option value="1">Category 1</option>
+                                    <option value="2">Category 2</option>
+                                    <!-- Add other categories as options -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="tags">Tags</label>
+                                <select asp-for="TagsIDs" class="form-control" multiple>
+                                    <option value="1">Tag 1</option>
+                                    <option value="2">Tag 2</option>
+                                    <!-- Add other tags as options -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="datetime">Date and Time</label>
+                                <input asp-for="DateTime" type="datetime-local" class="form-control" />
                             </div>
                         </div>
                         <!-- Continue with other input fields like Orientation, Privacy Settings, etc. -->
@@ -66,3 +167,4 @@
         <!-- /.container-fluid -->
     </div>
 </form>
+ 

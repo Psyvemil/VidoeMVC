@@ -1,8 +1,7 @@
-﻿namespace vidoeMVC.Models
+﻿using vidoeMVC.Models;
+
+public class Tag : BaseEntity
 {
-    public class Tag : BaseEntity
-    {
-        public string Name { get; set; }
-        public ICollection<Video>? Videos { get; set; }
-    }
+    public string Name { get; set; }
+    public ICollection<VideoTag> VideoTags { get; set; }
 }
