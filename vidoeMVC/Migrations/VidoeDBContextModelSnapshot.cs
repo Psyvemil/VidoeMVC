@@ -311,21 +311,12 @@ namespace vidoeMVC.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("DateCreated")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
-
-                    b.Property<string>("Languages")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Privacy")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -361,7 +352,7 @@ namespace vidoeMVC.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("VideoCategory");
+                    b.ToTable("VideoCategories");
                 });
 
             modelBuilder.Entity("vidoeMVC.Models.VideoTag", b =>
@@ -376,7 +367,7 @@ namespace vidoeMVC.Migrations
 
                     b.HasIndex("TagId");
 
-                    b.ToTable("VideoTag");
+                    b.ToTable("VideoTags");
                 });
 
             modelBuilder.Entity("vidoeMVC.Models.AppUser", b =>

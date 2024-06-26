@@ -1,10 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using CloudinaryDotNet;
 using vidoeMVC.DAL;
 using vidoeMVC.Models;
-using System.Threading.Tasks;
 using vidoeMVC.Services;
 
 namespace vidoeMVC
@@ -15,14 +13,27 @@ namespace vidoeMVC
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddControllersWithViews();
+            // Add services to the container.
+            ConfigureServices(builder.Services, builder.Configuration);
+
+            var app = builder.Build();
+
+            // Configure the HTTP request pipeline.
+            Configure(app);
+
+            app.Run();
+        }
+
+        private static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddControllersWithViews();
 
             // Configure DbContext
-            builder.Services.AddDbContext<VidoeDBContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("CodeFirst")));
+            services.AddDbContext<VidoeDBContext>(options =>
+                options.UseSqlServer(configuration.GetConnectionString("CodeFirst")));
 
             // Configure Identity
-            builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
+            services.AddIdentity<AppUser, IdentityRole>(opt =>
             {
                 opt.User.RequireUniqueEmail = true;
                 opt.Password.RequiredLength = 6;
@@ -35,17 +46,27 @@ namespace vidoeMVC
             .AddDefaultTokenProviders();
 
             // Add Cloudinary configuration
-            var cloudinaryConfig = builder.Configuration.GetSection("Cloudinary");
+            var cloudinaryConfig = configuration.GetSection("Cloudinary");
             var cloudinaryAccount = new Account(
                 cloudinaryConfig["CloudName"],
                 cloudinaryConfig["ApiKey"],
                 cloudinaryConfig["ApiSecret"]
             );
+            services.AddSingleton(new Cloudinary(cloudinaryAccount));
+            services.AddTransient<CloudinaryService>();
+        }
 
-            builder.Services.AddSingleton(new Cloudinary(cloudinaryAccount));
-            builder.Services.AddTransient<CloudinaryService>();
-
-            var app = builder.Build();
+        private static void Configure(WebApplication app)
+        {
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
+            }
 
             app.UseStaticFiles();
 
@@ -54,12 +75,12 @@ namespace vidoeMVC
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.MapControllerRoute("areas", "{area:exists}/{controller=Category}/{action=Index}/{id?}");
+            app.MapControllerRoute(
+                name: "areas",
+                pattern: "{area:exists}/{controller=Category}/{action=Index}/{id?}");
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
-
-            app.Run();
         }
     }
 }

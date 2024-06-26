@@ -11,64 +11,62 @@ namespace vidoeMVC.DAL
         public VidoeDBContext(DbContextOptions<VidoeDBContext> options) : base(options)
         {
         }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<AppUser> AppUsers { get; set; }
-        public DbSet<UserFollow> UserFollows { get; set; }
+        public DbSet<AppUser> Users { get; set; }
         public DbSet<Video> Videos { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public DbSet<Tag> Tags { get; set; }
-        
+        public DbSet<UserFollow> UserFollows { get; set; }
+        public DbSet<VideoCategory> VideoCategories { get; set; }
+        public DbSet<VideoTag> VideoTags { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(builder);
-           
+            base.OnModelCreating(modelBuilder);
 
-            builder.Entity<UserFollow>()
+            modelBuilder.Entity<UserFollow>()
                 .HasKey(uf => new { uf.FollowerId, uf.FolloweeId });
 
-            builder.Entity<UserFollow>()
+            modelBuilder.Entity<UserFollow>()
                 .HasOne(uf => uf.Follower)
                 .WithMany(u => u.Followees)
                 .HasForeignKey(uf => uf.FollowerId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Entity<UserFollow>()
+            modelBuilder.Entity<UserFollow>()
                 .HasOne(uf => uf.Followee)
                 .WithMany(u => u.Followers)
                 .HasForeignKey(uf => uf.FolloweeId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Entity<Video>()
-                .HasOne(v => v.Author)
-                .WithMany(u => u.Videos)
-                .HasForeignKey(v => v.AuthorId)
-                .IsRequired();
-            builder.Entity<VideoTag>()
-              .HasKey(vt => new { vt.VideoId, vt.TagId });
-
-            builder.Entity<VideoCategory>()
+            modelBuilder.Entity<VideoCategory>()
                 .HasKey(vc => new { vc.VideoId, vc.CategoryId });
 
-            builder.Entity<Tag>()
-                .HasMany(t => t.VideoTags)
-                .WithOne(vt => vt.Tag)
-                .HasForeignKey(vt => vt.TagId);
-
-            builder.Entity<Video>()
-                .HasMany(v => v.Tags)
-                .WithOne(vt => vt.Video)
-                .HasForeignKey(vt => vt.VideoId);
-
-            builder.Entity<Category>()
-                .HasMany(c => c.VideoCategories)
-                .WithOne(vc => vc.Category)
-                .HasForeignKey(vc => vc.CategoryId);
-
-            builder.Entity<Video>()
-                .HasMany(v => v.VCategories)
-                .WithOne(vc => vc.Video)
+            modelBuilder.Entity<VideoCategory>()
+                .HasOne(vc => vc.Video)
+                .WithMany(v => v.VCategories)
                 .HasForeignKey(vc => vc.VideoId);
 
+            modelBuilder.Entity<VideoCategory>()
+                .HasOne(vc => vc.Category)
+                .WithMany(c => c.VideoCategories)
+                .HasForeignKey(vc => vc.CategoryId);
+
+            modelBuilder.Entity<VideoTag>()
+                .HasKey(vt => new { vt.VideoId, vt.TagId });
+
+            modelBuilder.Entity<VideoTag>()
+                .HasOne(vt => vt.Video)
+                .WithMany(v => v.Tags)
+                .HasForeignKey(vt => vt.VideoId);
+
+            modelBuilder.Entity<VideoTag>()
+                .HasOne(vt => vt.Tag)
+                .WithMany(t => t.VideoTags)
+                .HasForeignKey(vt => vt.TagId);
+            modelBuilder.Entity<AppUser>()
+           .HasMany(u => u.Videos)
+           .WithOne(v => v.Author) 
+           .HasForeignKey(v => v.AuthorId);
         }
     }
 }
