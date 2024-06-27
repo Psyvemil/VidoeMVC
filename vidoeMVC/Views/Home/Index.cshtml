@@ -73,13 +73,13 @@
                 </div>
             </div>
 
-           @*  @foreach (var video in Model.Videos)
+           @foreach (var video in Model.Videos)
             {
                 <div class="col-xl-3 col-sm-6 mb-3">
                     <div class="video-card">
-                        <div class="video-card-image">
-                            <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                            <a href="#"><img class="img-fluid" src="~/img/v1.png" alt=""></a>
+                        <div class="video-card-image" >
+                            <a class="play-icon" asp-route-id="@video.Id" asp-action="Index" asp-controller="VideoPage"><i class="fas fa-play-circle"></i></a>
+                            <a asp-route-id="@video.Id" asp-action="Index" asp-controller="VideoPage"><img class="img-fluid" src="@video.TumbnailUrl" alt=""></a>
                             <div class="time">3:50</div>
                         </div>
                         <div class="video-card-body">
@@ -87,15 +87,15 @@
                                 <a href="#">@video.Title</a>
                             </div>
                             <div class="video-page text-success">
-                                @video.Category  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
+                                @video.Author.Name  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
                             </div>
                             <div class="video-view">
-                                1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
+                                1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> @video.CreatedTime.ToString("MMM dd, yyyy")
                             </div>
                         </div>
                     </div>
                 </div>
-            } *@
+            } 
         </div>
     </div>
 
@@ -164,7 +164,7 @@
                         </div>
                     </div>
 
-                    @if (user.Followers.Any())
+                   @*  @if (user.Followers.Any())
                     {
                         <h3>Followers</h3>
                         <ul>
@@ -184,7 +184,7 @@
                                 <li>@followee.Followee.UserName</li>
                             }
                         </ul>
-                    }
+                    } *@
                 </div>
             }
         </div>

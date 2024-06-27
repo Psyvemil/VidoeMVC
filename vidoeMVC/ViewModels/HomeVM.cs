@@ -11,7 +11,8 @@ namespace vidoeMVC.ViewModels
 
         public List<GetCategoryVM> categories { get; set; }
 
-        public List<VideoUploadVM > videoUploads { get; set; }
+        public Video Video { get; set; }
+        public List<Video> Videos { get; set; }
 
     }
 }

@@ -60,82 +60,88 @@ namespace vidoeMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(VideoUploadVM model)
         {
-                var user = await _userManager.GetUserAsync(User);
-                model.AuthorId = user.Id;
             if (ModelState.IsValid)
             {
-                string videoUrl;
-                string thumbnailUrl;
+            
+            var user = await _userManager.GetUserAsync(User);
+            
 
-                using (var videoStream = model.Video.OpenReadStream())
+
+            string videoUrl;
+            string thumbnailUrl;
+
+            using (var videoStream = model.Video.OpenReadStream())
+            {
+                var videoUploadResult = await _cloudinaryService.UploadVideoAsync(videoStream, model.Video.FileName);
+                videoUrl = videoUploadResult.Url.ToString();
+            }
+
+            using (var thumbnailStream = model.Tumbnail.OpenReadStream())
+            {
+                var thumbnailUploadResult = await _cloudinaryService.UploadThumbnailAsync(thumbnailStream, model.Tumbnail.FileName);
+                thumbnailUrl = thumbnailUploadResult.Url.ToString();
+            }
+
+            var video = new Video
+            {
+                Title = model.Title,
+                Description = model.Description,
+                VideoUrl = videoUrl,
+                TumbnailUrl = thumbnailUrl,
+                AuthorId = user.Id,
+                Privacy = new List<VideoStatus> { model.Privacy },
+                Languages = model.Language,
+                CreatedTime = DateTime.Now,
+                UpdatedTime = DateTime.Now,
+                Tags = model.TagsIDs?.Select(tagId => new VideoTag { TagId = tagId }).ToList(),
+                Casts = model.CastIDs?.Select(castId => new VideoCast { UserId = castId }).ToList(),
+                VCategories = model.CategoriesIDs?.Select(catId => new VideoCategory { CategoryId = catId }).ToList(),
+                IsDeleted = false,
+                Author = user
+
+            };
+
+            // Add categories
+            if (model.CategoriesIDs != null && model.CategoriesIDs.Any())
+            {
+                video.VCategories = model.CategoriesIDs.Select(id => new VideoCategory
                 {
-                    var videoUploadResult = await _cloudinaryService.UploadVideoAsync(videoStream, model.Video.FileName);
-                     videoUrl = videoUploadResult.Url.ToString();
-                }
+                    CategoryId = id
+                }).ToList();
+            }
 
-                using (var thumbnailStream = model.Tumbnail.OpenReadStream())
+            // Add tags
+            if (model.TagsIDs != null && model.TagsIDs.Any())
+            {
+                video.Tags = model.TagsIDs.Select(id => new VideoTag
                 {
-                    var thumbnailUploadResult = await _cloudinaryService.UploadThumbnailAsync(thumbnailStream, model.Tumbnail.FileName);
-                     thumbnailUrl = thumbnailUploadResult.Url.ToString();
-                }
-
-                var video = new Video
-                {
-                    Title = model.Title,
-                    Description = model.Description,
-                    VideoUrl = videoUrl,
-                    TumbnailUrl = thumbnailUrl,
-                    AuthorId = user.Id,
-                    //Privacy =   model.Privacy ,
-                    //Languages =  model.Language ,
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    Tags = model.TagsIDs?.Select(tagId => new VideoTag { TagId = tagId }).ToList(),
-                    Cast = model.CastIDs?.Select(castId => new AppUser { Id = castId }).ToList(),
-                    VCategories = model.CategoriesIDs?.Select(catId => new VideoCategory { CategoryId = catId }).ToList(),
-                    IsDeleted = false,
-
-                };
-
-                // Add categories
-                if (model.CategoriesIDs != null && model.CategoriesIDs.Any())
-                {
-                    video.VCategories = model.CategoriesIDs.Select(id => new VideoCategory
-                    {
-                        CategoryId = id
-                    }).ToList();
-                }
-
-                // Add tags
-                if (model.TagsIDs != null && model.TagsIDs.Any())
-                {
-                    video.Tags = model.TagsIDs.Select(id => new VideoTag
-                    {
-                        TagId = id
-                    }).ToList();
-                }
+                    TagId = id
+                }).ToList();
+            }
 
                 // Add cast members
                 if (model.CastIDs != null && model.CastIDs.Any())
                 {
-                    video.Cast = model.CastIDs.Select(id => _context.Users.Find(id)).ToList();
+                    video.Casts = model.CastIDs.Select(id => new VideoCast
+                    {
+                        UserId = id
+                    }).ToList();
                 }
 
                 _context.Videos.Add(video);
-                await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
 
-                return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Home");
+        }
+                ViewBag.Categories = _context.Categories.ToList();
+                ViewBag.Tags = _context.Tags.ToList();
+                ViewBag.Users = _context.Users.ToList();
+                return View(model);
+
+
             }
-
-            ViewBag.Categories = _context.Categories.ToList();
-            ViewBag.Tags = _context.Tags.ToList();
-            ViewBag.Users = _context.Users.ToList();
-            return View(model);
-
-
         }
     }
-}
 
 //using CloudinaryDotNet.Actions;
 //using CloudinaryDotNet;

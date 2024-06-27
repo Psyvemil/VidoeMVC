@@ -318,6 +318,12 @@ namespace vidoeMVC.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Languages")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Privacy")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -338,6 +344,21 @@ namespace vidoeMVC.Migrations
                     b.HasIndex("AuthorId");
 
                     b.ToTable("Videos");
+                });
+
+            modelBuilder.Entity("vidoeMVC.Models.VideoCast", b =>
+                {
+                    b.Property<int>("VideoId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("VideoId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("VideoCasts");
                 });
 
             modelBuilder.Entity("vidoeMVC.Models.VideoCategory", b =>
@@ -384,11 +405,6 @@ namespace vidoeMVC.Migrations
                     b.Property<string>("Surname")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("VideoId")
-                        .HasColumnType("int");
-
-                    b.HasIndex("VideoId");
 
                     b.HasDiscriminator().HasValue("AppUser");
                 });
@@ -474,6 +490,25 @@ namespace vidoeMVC.Migrations
                     b.Navigation("Author");
                 });
 
+            modelBuilder.Entity("vidoeMVC.Models.VideoCast", b =>
+                {
+                    b.HasOne("vidoeMVC.Models.AppUser", "User")
+                        .WithMany("VideoCasts")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("vidoeMVC.Models.Video", "Video")
+                        .WithMany("Casts")
+                        .HasForeignKey("VideoId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+
+                    b.Navigation("Video");
+                });
+
             modelBuilder.Entity("vidoeMVC.Models.VideoCategory", b =>
                 {
                     b.HasOne("vidoeMVC.Models.Category", "Category")
@@ -512,13 +547,6 @@ namespace vidoeMVC.Migrations
                     b.Navigation("Video");
                 });
 
-            modelBuilder.Entity("vidoeMVC.Models.AppUser", b =>
-                {
-                    b.HasOne("vidoeMVC.Models.Video", null)
-                        .WithMany("Cast")
-                        .HasForeignKey("VideoId");
-                });
-
             modelBuilder.Entity("Tag", b =>
                 {
                     b.Navigation("VideoTags");
@@ -531,7 +559,7 @@ namespace vidoeMVC.Migrations
 
             modelBuilder.Entity("vidoeMVC.Models.Video", b =>
                 {
-                    b.Navigation("Cast");
+                    b.Navigation("Casts");
 
                     b.Navigation("Tags");
 
@@ -543,6 +571,8 @@ namespace vidoeMVC.Migrations
                     b.Navigation("Followees");
 
                     b.Navigation("Followers");
+
+                    b.Navigation("VideoCasts");
 
                     b.Navigation("Videos");
                 });

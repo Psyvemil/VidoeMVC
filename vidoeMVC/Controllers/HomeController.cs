@@ -21,7 +21,7 @@ namespace vidoeMVC.Controllers
             
 
             var categories = await _context.Categories.ToListAsync();
-
+            var videos = await _context.Videos.Include(v=>v.Author).ToListAsync();
             var appUsers = await _userManager.Users
                 .Include(u => u.Followers)
                 .ThenInclude(f => f.Follower)
@@ -42,7 +42,8 @@ namespace vidoeMVC.Controllers
                     Name = c.Name,
                     Id = c.Id
                 }).ToList(),
-                users = appUsers
+                users = appUsers,
+                Videos = videos,
             };
 
             return View(homeVM);

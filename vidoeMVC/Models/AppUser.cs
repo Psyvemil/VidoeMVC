@@ -12,5 +12,7 @@ namespace vidoeMVC.Models
         public virtual ICollection<UserFollow>? Followers { get; set; }
         public virtual ICollection<UserFollow>? Followees { get; set; }
         public ICollection<Video>? Videos { get; set; }
+        public ICollection<VideoCast>? VideoCasts { get; set; }
+
     }
 }

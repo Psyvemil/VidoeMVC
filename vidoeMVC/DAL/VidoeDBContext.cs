@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection.Emit;
+using vidoeMVC.Enums;
 using vidoeMVC.Models;
 
 
@@ -18,6 +19,7 @@ namespace vidoeMVC.DAL
         public DbSet<UserFollow> UserFollows { get; set; }
         public DbSet<VideoCategory> VideoCategories { get; set; }
         public DbSet<VideoTag> VideoTags { get; set; }
+        public DbSet<VideoCast> VideoCasts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -63,6 +65,22 @@ namespace vidoeMVC.DAL
                 .HasOne(vt => vt.Tag)
                 .WithMany(t => t.VideoTags)
                 .HasForeignKey(vt => vt.TagId);
+
+            modelBuilder.Entity<VideoCast>()
+        .HasKey(vc => new { vc.VideoId, vc.UserId });
+
+            modelBuilder.Entity<VideoCast>()
+                .HasOne(vc => vc.Video)
+                .WithMany(v => v.Casts)
+                .HasForeignKey(vc => vc.VideoId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<VideoCast>()
+                .HasOne(vc => vc.User)
+                .WithMany(u => u.VideoCasts)
+                .HasForeignKey(vc => vc.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             modelBuilder.Entity<AppUser>()
            .HasMany(u => u.Videos)
            .WithOne(v => v.Author) 
