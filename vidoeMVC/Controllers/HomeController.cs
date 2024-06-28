@@ -18,7 +18,7 @@ namespace vidoeMVC.Controllers
       
         public async Task<IActionResult> Index()
         {
-            
+           
 
             var categories = await _context.Categories.ToListAsync();
             var videos = await _context.Videos.Include(v=>v.Author).ToListAsync();
@@ -35,6 +35,7 @@ namespace vidoeMVC.Controllers
                 Followees = u.Followees ?? new List<UserFollow>()
             }).ToListAsync();
 
+            var sa= await _context.Videos.Where(s=>s.Author.UserName==User.Identity.Name).ToListAsync();
             var homeVM = new HomeVM
             {
                 categories = categories.Select(c => new GetCategoryVM
@@ -44,6 +45,7 @@ namespace vidoeMVC.Controllers
                 }).ToList(),
                 users = appUsers,
                 Videos = videos,
+               
             };
 
             return View(homeVM);

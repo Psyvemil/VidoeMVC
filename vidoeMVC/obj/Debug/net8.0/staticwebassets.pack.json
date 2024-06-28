@@ -2665,6 +2665,10 @@
       "PackagePath": "staticwebassets\\img\\v8.png"
     },
     {
+      "Id": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\wwwroot\\imgs\\DefaultProfPhot\\Default.png",
+      "PackagePath": "staticwebassets\\imgs\\DefaultProfPhot\\Default.png"
+    },
+    {
       "Id": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\wwwroot\\js\\custom.js",
       "PackagePath": "staticwebassets\\js\\custom.js"
     },

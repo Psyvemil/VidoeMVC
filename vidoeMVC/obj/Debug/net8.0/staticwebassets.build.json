@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uuMIr+Es1hdsNLIeTLpjKaoBWEgcjT8uS6IFKGXNG/g=",
+  "Hash": "EKJSr8kKf0uBYYam8EPLoFzaapy3tcO0ZZmfOrAGWzs=",
   "Source": "vidoeMVC",
   "BasePath": "_content/vidoeMVC",
   "Mode": "Default",
@@ -12688,6 +12688,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\v8.png"
+    },
+    {
+      "Identity": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\wwwroot\\imgs\\DefaultProfPhot\\Default.png",
+      "SourceId": "vidoeMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\wwwroot\\",
+      "BasePath": "_content/vidoeMVC",
+      "RelativePath": "imgs/DefaultProfPhot/Default.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imgs\\DefaultProfPhot\\Default.png"
     },
     {
       "Identity": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\wwwroot\\js\\custom.js",

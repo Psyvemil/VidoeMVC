@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|c:\\users\\emil\\desktop\\proje\\vidoemvc\\vidoemvc\\vidoemvc\\views\\mychannel\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\views\\mychannel\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|c:\\users\\emil\\desktop\\proje\\vidoemvc\\vidoemvc\\vidoemvc\\views\\settings\\usersetting.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\views\\settings\\usersetting.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|c:\\users\\emil\\desktop\\proje\\vidoemvc\\vidoemvc\\vidoemvc\\controllers\\settingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\controllers\\settingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoemvc\\controllers\\mychannelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\controllers\\mychannelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|c:\\users\\emil\\desktop\\proje\\vidoemvc\\vidoemvc\\vidoemvc\\models\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\models\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|c:\\users\\emil\\desktop\\proje\\vidoemvc\\vidoemvc\\vidoemvc\\services\\cloudinaryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F591113-B64D-4193-A25A-3C12B3CB46D5}|vidoeMVC\\vidoeMVC.csproj|solutionrelative:vidoemvc\\services\\cloudinaryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,36 +30,75 @@
       "DocumentGroups": [
         {
           "DockedWidth": 320,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CloudinaryService.cs",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Services\\CloudinaryService.cs",
+              "RelativeDocumentMoniker": "vidoeMVC\\Services\\CloudinaryService.cs",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Services\\CloudinaryService.cs",
+              "RelativeToolTip": "vidoeMVC\\Services\\CloudinaryService.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAqwCYAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T14:40:06.654Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AppUser.cs",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Models\\AppUser.cs",
+              "RelativeDocumentMoniker": "vidoeMVC\\Models\\AppUser.cs",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Models\\AppUser.cs",
+              "RelativeToolTip": "vidoeMVC\\Models\\AppUser.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAuwBAAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T13:49:18.571Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserSetting.cshtml",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Views\\Settings\\UserSetting.cshtml",
+              "RelativeDocumentMoniker": "vidoeMVC\\Views\\Settings\\UserSetting.cshtml",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Views\\Settings\\UserSetting.cshtml",
+              "RelativeToolTip": "vidoeMVC\\Views\\Settings\\UserSetting.cshtml",
+              "ViewState": "AQIAACQAAAAAAAAAAADwvy8AAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-28T12:24:56.66Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Views\\MyChannel\\Index.cshtml",
-              "RelativeDocumentMoniker": "vidoeMVC\\Views\\MyChannel\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Views\\MyChannel\\Index.cshtml",
-              "RelativeToolTip": "vidoeMVC\\Views\\MyChannel\\Index.cshtml",
-              "ViewState": "AQIAADAAAAAAAAAAAAAAAAQAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-27T15:29:04.474Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MyChannelController.cs",
               "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Controllers\\MyChannelController.cs",
               "RelativeDocumentMoniker": "vidoeMVC\\Controllers\\MyChannelController.cs",
               "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Controllers\\MyChannelController.cs",
               "RelativeToolTip": "vidoeMVC\\Controllers\\MyChannelController.cs",
-              "ViewState": "AQIAABcAAADAFbJCE8AtwBEAAABDAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAQwA4AAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-20T13:28:58.907Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SettingsController.cs",
+              "DocumentMoniker": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Controllers\\SettingsController.cs",
+              "RelativeDocumentMoniker": "vidoeMVC\\Controllers\\SettingsController.cs",
+              "ToolTip": "C:\\Users\\Emil\\Desktop\\proje\\vidoeMVC\\VidoeMVC\\vidoeMVC\\Controllers\\SettingsController.cs",
+              "RelativeToolTip": "vidoeMVC\\Controllers\\SettingsController.cs",
+              "ViewState": "AQIAACkAAAAAAAAAAAAswDsAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T12:32:24.429Z",
               "EditorCaption": ""
             }
           ]

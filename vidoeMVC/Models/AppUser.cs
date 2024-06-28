@@ -14,5 +14,7 @@ namespace vidoeMVC.Models
         public ICollection<Video>? Videos { get; set; }
         public ICollection<VideoCast>? VideoCasts { get; set; }
 
+        public string? ProfilPhotoURL { get; set; } = "../imgs/DefaultProfPhot/Default.png";
+
     }
 }

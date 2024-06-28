@@ -2,16 +2,18 @@
 
 @{
     ViewData["Title"] = "Index";
-    
-    
+   
+   
 }
 
 @model HomeVM
+ @if(Model.Videos.Count() != 0)
+ {
 <div class="single-channel-page" id="content-wrapper">
     <div class="single-channel-image">
         <img class="img-fluid" alt="" src="img/channel-banner.png">
         <div class="channel-profile">
-            <img class="channel-profile-img" alt="" src="img/s2.png">
+            <img class="channel-profile-img" alt="" src="@Model.Video.Author.ProfilPhotoURL">
             <div class="social hidden-xs">
                 Social &nbsp;
                 <a class="fb" href="#">Facebook</a>
@@ -59,7 +61,11 @@
                     <input class="form-control form-control-sm mr-sm-1" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success btn-sm my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
                     &nbsp;&nbsp;&nbsp; <button class="btn btn-outline-danger btn-sm" type="button">Subscribe 
-                        <strong>@Model.Video.Author.Followers.Count() </strong></button>
+                        <strong>
+                        @(ViewBag.userCount ?? 0)
+                      
+                        </strong>
+                    </button>
                 </form>
             </div>
         </nav>
@@ -145,4 +151,13 @@
     </div>
     <!-- /.container-fluid -->
   
+    </div>
+}
+else
+{
+    <div class="single-channel-page" id="content-wrapper">
+<H1>
+    sizin minimum 1 videonuz olmalidir <a asp-action="Create" asp-controller="VideoUpload">Go to Video Upload </a>
+</H1>
 </div>
+}

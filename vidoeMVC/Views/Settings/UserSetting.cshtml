@@ -1,0 +1,63 @@
+﻿@model HomeVM
+<div class="container-fluid upload-details">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="main-title">
+                <h6>Settings</h6>
+            </div>
+        </div>
+    </div>
+    <form method="post" enctype="multipart/form-data">
+        <a b-ethlm9ic73=""  href="#" id="userDropdown" role="button" aria-haspopup="true" aria-expanded="true">
+            <img alt="Avatar" width="150px" src="@Model.UserL.ProfPhotURL">           
+            <input class="form-control border-form-control" asp-for="@Model.UserEditVM.ProfPhot" placeholder="Gurdeep">
+
+        </a>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="control-label" asp-for="@Model.UserL.Name">Name <span class="required">*</span></label>
+                    <input class="form-control border-form-control" asp-for="@Model.UserL.Name" placeholder="Gurdeep" type="text">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="control-label" asp-for="@Model.UserL.Surname">Last Name <span class="required">*</span></label>
+                    <input class="form-control border-form-control" asp-for="@Model.UserL.Surname" placeholder="Osahan" type="text">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="control-label" asp-for="@Model.UserL.PhoneNumber"> Phone Number<span class="required">*</span></label>
+                    <input class="form-control border-form-control" asp-for="@Model.UserL.PhoneNumber" placeholder="+994 12 123 12 12" type="number">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    
+                    <input class="form-control border-form-control " asp-for="@Model.UserL.Email" placeholder="iamosahan@gmail.com" disabled="" type="email">
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-sm-12 text-right">
+                <button type="button" class="btn btn-danger border-none"> Cencel </button>
+                <button type="submit" class="btn btn-success border-none"> Save Changes </button>
+            </div>
+        </div>
+    </form>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!-- /.container-fluid -->

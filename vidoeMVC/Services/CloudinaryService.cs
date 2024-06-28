@@ -36,6 +36,15 @@ public class CloudinaryService
 
             return await _cloudinary.UploadAsync(uploadParams);
         }
+        public async Task<ImageUploadResult> UploadPhotoAsync(Stream fileStream, string fileName)
+        {
+            var uploadParams = new ImageUploadParams()
+            {
+                File = new FileDescription(fileName, fileStream)
+            };
+
+            return await _cloudinary.UploadAsync(uploadParams);
+        }
     }
 
 }
