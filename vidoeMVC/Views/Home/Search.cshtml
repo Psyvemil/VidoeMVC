@@ -1,0 +1,47 @@
+﻿@model HomeVM
+
+@{
+    ViewData["Title"] = "Search Results";
+}
+
+<h2>Search Results</h2>
+
+@if (Model.VideoViewModels.Any())
+{
+    <div class="container-fluid pb-0">
+      <div class="video-block section-padding">
+      
+        @foreach (var video in Model.VideoViewModels)
+        {
+    <div class="row">
+            <div class="col-xl-3 col-sm-6 mb-3">
+                <div class="video-card">
+                    <div class="video-card-image">
+                        <a class="play-icon" asp-route-id="@video.Id" asp-action="Index" asp-controller="VideoPage"><i class="fas fa-play-circle"></i></a>
+                        <a asp-route-id="@video.Id" asp-action="Index" asp-controller="VideoPage"><img class="img-fluid" src="@video.TumbnailUrl" alt=""></a>
+                        <div class="time">
+                            <p>@video.Duration</p>
+                        </div>
+                    </div>
+                    <div class="video-card-body">
+                        <div class="video-title">
+                            <a href="#">@video.Title</a>
+                        </div>
+                        <div class="video-page text-success">
+                            @video.Author.UserName <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
+                        </div>
+                        <div class="video-view">
+                            1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> @video.CreatedTime.ToString("MMM dd, yyyy")
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+        }
+    </div>
+    </div>
+}
+else
+{
+    <p>No videos found.</p>
+}

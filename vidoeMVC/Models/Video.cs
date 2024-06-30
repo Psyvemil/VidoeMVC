@@ -12,6 +12,7 @@ namespace vidoeMVC.Models
         public string VideoUrl { get; set; }
         public string TumbnailUrl { get; set; }
         public string AuthorId { get; set; }
+        public string Duration { get; set; } = "0:00";
         public AppUser? Author { get; set; }
         public List<VideoStatus>? Privacy { get; set; }
         public List<Language>? Languages { get; set; }

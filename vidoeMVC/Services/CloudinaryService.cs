@@ -2,20 +2,15 @@
 
 namespace vidoeMVC.Services
 {
-  
-using CloudinaryDotNet;
-using CloudinaryDotNet.Actions;
-using System.IO;
-using System.Threading.Tasks;
 
-public class CloudinaryService
+    using CloudinaryDotNet;
+    using CloudinaryDotNet.Actions;
+    using System.IO;
+    using System.Threading.Tasks;
+
+    public class CloudinaryService(Cloudinary _cloudinary)
     {
-        private readonly Cloudinary _cloudinary;
-
-        public CloudinaryService(Cloudinary cloudinary)
-        {
-            _cloudinary = cloudinary;
-        }
+        
 
         public async Task<VideoUploadResult> UploadVideoAsync(Stream fileStream, string fileName)
         {
@@ -45,7 +40,9 @@ public class CloudinaryService
 
             return await _cloudinary.UploadAsync(uploadParams);
         }
-    }
 
+       
+    }
 }
+
 

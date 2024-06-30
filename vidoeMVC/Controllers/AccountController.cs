@@ -25,11 +25,10 @@ namespace vidoeMVC.Controllers
                 Email = vm.Email,
                 Surname = vm.Surname,
                 UserName = vm.Username,
-                BirthDate =vm.BirthDate,
+                BirthDate = vm.BirthDate,
             };
 
             IdentityResult result = await _userManager.CreateAsync(user, vm.Password);
-
 
             if (!result.Succeeded)
             {
@@ -39,10 +38,12 @@ namespace vidoeMVC.Controllers
                 }
                 return View(vm);
             }
-            await _userManager.AddToRoleAsync(user,UserRole.PUser.ToString());
 
-            return View();
+            await _userManager.AddToRoleAsync(user, UserRole.Member.ToString());
+            await _signInManager.SignInAsync(user, isPersistent: false);
+            return RedirectToAction("Index", "Home");
         }
+
 
         public async Task<IActionResult> Login()
         {

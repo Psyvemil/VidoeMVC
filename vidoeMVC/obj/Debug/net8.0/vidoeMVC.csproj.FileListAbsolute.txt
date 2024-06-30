@@ -517,3 +517,4 @@ C:\Users\Emil\Desktop\proje\vidoeMVC\VidoeMVC\vidoeMVC\obj\Debug\net8.0\vidoeMVC
 C:\Users\Emil\Desktop\proje\vidoeMVC\VidoeMVC\vidoeMVC\obj\Debug\net8.0\vidoeMVC.genruntimeconfig.cache
 C:\Users\Emil\Desktop\proje\vidoeMVC\VidoeMVC\vidoeMVC\obj\Debug\net8.0\ref\vidoeMVC.dll
 C:\Users\Emil\Desktop\proje\vidoeMVC\VidoeMVC\vidoeMVC\bin\Debug\net8.0\CloudinaryDotNet.dll
+C:\Users\Emil\Desktop\proje\vidoeMVC\VidoeMVC\vidoeMVC\bin\Debug\net8.0\Xabe.FFmpeg.dll

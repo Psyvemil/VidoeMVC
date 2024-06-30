@@ -4,6 +4,7 @@ using CloudinaryDotNet;
 using vidoeMVC.DAL;
 using vidoeMVC.Models;
 using vidoeMVC.Services;
+using vidoeMVC.Enums;
 
 namespace vidoeMVC
 {
@@ -20,6 +21,14 @@ namespace vidoeMVC
 
             // Configure the HTTP request pipeline.
             Configure(app);
+
+            // Ensure roles are created
+            using (var scope = app.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+                await EnsureRolesCreated(roleManager);
+            }
 
             app.Run();
         }
@@ -44,7 +53,7 @@ namespace vidoeMVC
             })
             .AddEntityFrameworkStores<VidoeDBContext>()
             .AddDefaultTokenProviders();
-
+           
             // Add Cloudinary configuration
             var cloudinaryConfig = configuration.GetSection("Cloudinary");
             var cloudinaryAccount = new Account(
@@ -54,6 +63,17 @@ namespace vidoeMVC
             );
             services.AddSingleton(new Cloudinary(cloudinaryAccount));
             services.AddTransient<CloudinaryService>();
+        }
+
+        private static async Task EnsureRolesCreated(RoleManager<IdentityRole> roleManager)
+        {
+            foreach (UserRole role in Enum.GetValues(typeof(UserRole)))
+            {
+                if (!await roleManager.RoleExistsAsync(role.ToString()))
+                {
+                    await roleManager.CreateAsync(new IdentityRole { Name = role.ToString() });
+                }
+            }
         }
 
         private static void Configure(WebApplication app)

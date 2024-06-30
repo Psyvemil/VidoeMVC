@@ -1,4 +1,8 @@
-﻿@model HomeVM
+﻿@{
+    Layout = "_Layout1";
+}
+@model HomeVM
+
 <div class="container-fluid upload-details">
     <div class="row">
         <div class="col-lg-12">
@@ -8,56 +12,79 @@
         </div>
     </div>
     <form method="post" enctype="multipart/form-data">
-        <a b-ethlm9ic73=""  href="#" id="userDropdown" role="button" aria-haspopup="true" aria-expanded="true">
-            <img alt="Avatar" width="150px" src="@Model.UserL.ProfPhotURL">           
-            <input class="form-control border-form-control" asp-for="@Model.UserEditVM.ProfPhot" placeholder="Gurdeep">
-
-        </a>
+        <div class="row">
+            <div class="col-sm-6">
+                <a href="#" id="userDropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                    <img alt="Avatar" width="150px" src="@Model.UserL.ProfPhotURL">
+                    <input class="form-control border-form-control" asp-for="@Model.UserEditVM.ProfPhot" >
+                </a>
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="control-label" asp-for="@Model.UserL.Name">Name <span class="required">*</span></label>
-                    <input class="form-control border-form-control" asp-for="@Model.UserL.Name" placeholder="Gurdeep" type="text">
+                    <label class="control-label">User Name<span class="required">*</span></label>
+                    <input class="form-control border-form-control" asp-for="@Model.UserL.UserName" disabled>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="control-label" asp-for="@Model.UserL.Surname">Last Name <span class="required">*</span></label>
-                    <input class="form-control border-form-control" asp-for="@Model.UserL.Surname" placeholder="Osahan" type="text">
+                    <label class="control-label">Email Address<span class="required">*</span></label>
+                    <input class="form-control border-form-control" asp-for="@Model.UserL.Email" disabled>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="control-label" asp-for="@Model.UserL.Name">Name<span class="required">*</span></label>
+                    <input class="form-control border-form-control" asp-for="@Model.UserEditVM.Name" placeholder="@Model.UserL.Name">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="control-label" asp-for="@Model.UserL.Surname">Last Name<span class="required">*</span></label>
+                    <input class="form-control border-form-control" asp-for="@Model.UserEditVM.Surname" placeholder="@Model.UserL.Surname">
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="control-label" asp-for="@Model.UserL.PhoneNumber"> Phone Number<span class="required">*</span></label>
-                    <input class="form-control border-form-control" asp-for="@Model.UserL.PhoneNumber" placeholder="+994 12 123 12 12" type="number">
+                    <label class="control-label" asp-for="@Model.UserL.PhoneNumber">Phone Number<span class="required">*</span></label>
+                    <input class="form-control border-form-control" asp-for="@Model.UserEditVM.PhoneNumber" placeholder="ex: +994 12 123 12 12">
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
-                    
-                    <input class="form-control border-form-control " asp-for="@Model.UserL.Email" placeholder="iamosahan@gmail.com" disabled="" type="email">
+                    <label class="control-label" asp-for="@Model.UserL.Xlink">Twitter(X)<span class="required">*</span></label>
+                    <input class="form-control border-form-control" asp-for="@Model.UserEditVM.Xlink" placeholder="your link">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="control-label" asp-for="@Model.UserL.FBlink">Facebook<span class="required">*</span></label>
+                    <input class="form-control border-form-control" asp-for="@Model.UserEditVM.FBlink" placeholder="your link">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="control-label" asp-for="@Model.UserL.Instlink">Instagram<span class="required">*</span></label>
+                    <input class="form-control border-form-control" asp-for="@Model.UserEditVM.Instlink" placeholder="your link">
                 </div>
             </div>
         </div>
-        
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label class="control-label" asp-for="@Model.UserL.AboutMe">About Me<span class="required">*</span></label>
+                    <input class="form-control border-form-control" asp-for="@Model.UserEditVM.AboutMe" placeholder="Your information">
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm-12 text-right">
-                <button type="button" class="btn btn-danger border-none"> Cencel </button>
-                <button type="submit" class="btn btn-success border-none"> Save Changes </button>
+                <button type="button" class="btn btn-danger border-none">Cancel</button>
+                <button type="submit" class="btn btn-success border-none">Save Changes</button>
             </div>
         </div>
     </form>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<!-- /.container-fluid -->

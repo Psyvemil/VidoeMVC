@@ -9,7 +9,7 @@ namespace vidoeMVC.ViewModels.Videos
         public string Description { get; set; }
         public IFormFile Video { get; set; }
         public IFormFile Tumbnail { get; set; }
-
+  
         public VideoStatus Privacy { get; set; }
         public List<Language> Language { get; set; }
         public int[] CategoriesIDs { get; set; }

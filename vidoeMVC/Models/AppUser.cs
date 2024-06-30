@@ -13,7 +13,11 @@ namespace vidoeMVC.Models
         public virtual ICollection<UserFollow>? Followees { get; set; }
         public ICollection<Video>? Videos { get; set; }
         public ICollection<VideoCast>? VideoCasts { get; set; }
-
+        public string FBlink { get; set; } = "www.facebook.com";
+        public string Xlink { get; set; } = "x.com";
+        public string Instlink { get; set; } = "www.instagram.com";
+         
+        public string? AboutMe { get; set; } = "No information heleki";
         public string? ProfilPhotoURL { get; set; } = "../imgs/DefaultProfPhot/Default.png";
 
     }

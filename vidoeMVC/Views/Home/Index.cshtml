@@ -1,6 +1,5 @@
 ﻿@using System.Security.Claims
 @model HomeVM
-
 <div class="container-fluid pb-0">
     <div class="top-mobile-search">
         <div class="row">
@@ -19,6 +18,7 @@
 
     <div class="top-category section-padding mb-4">
         <div class="row">
+
             <div class="col-md-12">
                 <div class="main-title">
                     <div class="btn-group float-right right-action">
@@ -31,19 +31,19 @@
                             <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
                         </div>
                     </div>
-                    <h6>Channels Categories</h6>
+                    <h6>Video Categories</h6>
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="owl-carousel owl-carousel-category">
                     @foreach (var item in Model.categories)
                     {
-                        <div class="item">
+                        <div class="item"  class="form-control" name="query">
                             <div class="category-item">
                                 <a href="#">
-                                    <img class="img-fluid" src="~/img/s1.png" alt="">
+                                    <img class="img-fluid" src="../wwwroot/imgs/DefaultProfPhot/Default.png" alt="">
                                     <h6>@item.Name</h6>
-                                    <p>74,853 views</p>
+                                   
                                 </a>
                             </div>
                         </div>
@@ -73,21 +73,23 @@
                 </div>
             </div>
 
-           @foreach (var video in Model.Videos)
+           @foreach (var video in Model.VideoViewModels)
             {
                 <div class="col-xl-3 col-sm-6 mb-3">
                     <div class="video-card">
-                        <div class="video-card-image" >
+                        <div class="video-card-image">
                             <a class="play-icon" asp-route-id="@video.Id" asp-action="Index" asp-controller="VideoPage"><i class="fas fa-play-circle"></i></a>
                             <a asp-route-id="@video.Id" asp-action="Index" asp-controller="VideoPage"><img class="img-fluid" src="@video.TumbnailUrl" alt=""></a>
-                            <div class="time">3:50</div>
+                            <div class="time">
+                                <p>@video.Duration</p>
+                            </div>
                         </div>
                         <div class="video-card-body">
                             <div class="video-title">
                                 <a href="#">@video.Title</a>
                             </div>
                             <div class="video-page text-success">
-                                @video.Author.Name  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
+                                @video.Author.UserName <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
                             </div>
                             <div class="video-view">
                                 1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> @video.CreatedTime.ToString("MMM dd, yyyy")
@@ -98,7 +100,35 @@
             } 
         </div>
     </div>
-
+    <!-- Pagination -->
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center pagination-sm mb-4">
+            @if (Model.paginationVM.CurrentPage > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="?page=1" tabindex="-1">First</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page=@(Model.paginationVM.CurrentPage - 1)">Previous</a>
+                </li>
+            }
+            @for (int i = 1; i <= Model.paginationVM.TotalPages; i++)
+            {
+                <li class="page-item @(i == Model.paginationVM.CurrentPage ? "active" : "")">
+                    <a class="page-link" href="?page=@i">@i</a>
+                </li>
+            }
+            @if (Model.paginationVM.CurrentPage < Model.paginationVM.TotalPages)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="?page=@(Model.paginationVM.CurrentPage + 1)">Next</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page=@Model.paginationVM.TotalPages">Last</a>
+                </li>
+            }
+        </ul>
+    </nav>
     <hr class="mt-0">
 
     <div class="video-block section-padding">
@@ -118,75 +148,56 @@
                     <h6>Popular Channels</h6>
                 </div>
             </div>
-
-            @foreach (var user in Model.users)
-            {
-                <div class="col-xl-3 col-sm-6 mb-3">
-                    <div class="channels-card">
-                        <div class="channels-card-image">
-                            <a href="#"><img class="img-fluid" src="~/img/s1.png" alt=""></a>
-                            <div class="channels-card-image-btn">
-                                
-                                @if (User.Identity.IsAuthenticated)
-                                {
-                                    var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                                    if (user.Followers.Any(f => f.FollowerId == currentUserId))
+          
+                @for (int i = 0; i < 4; i++)
+                {
+                    var user = Model.users[i];
+                    <div class="col-xl-3 col-sm-6 mb-3">
+                        <div class="channels-card">
+                            <div class="channels-card-image">
+                                <a><img class="img-fluid" src="@user.ProfPhotURL" alt="Avatar"></a>
+                                <div class="channels-card-image-btn">
+                                    @if (User.Identity.IsAuthenticated)
                                     {
-                                        <form asp-action="Unfollow" asp-controller="Following" method="post">
-                                            <input type="hidden" name="id" value="@user.Id" />
-                                            <button class="btn btn-outline-secondary btn-sm" type="submit">Unfollow</button>
-                                        </form>
+                                        var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                                        if (user.Followers.Any(f => f.FollowerId == currentUserId))
+                                        {
+                                            <form asp-action="Unfollow" asp-controller="Following" method="post">
+                                                <input type="hidden" name="id" value="@user.Id" />
+                                                <button class="btn btn-outline-secondary btn-sm" type="submit">Unfollow</button>
+                                            </form>
+                                        }
+                                        else
+                                        {
+                                            <form asp-action="Follow" asp-controller="Following" method="post">
+                                                <input type="hidden" name="id" value="@user.Id" />
+                                                <button class="btn btn-outline-danger btn-sm" type="submit">Follow</button>
+                                            </form>
+                                        }
                                     }
                                     else
                                     {
-                                        <form asp-action="Follow" asp-controller="Following" method="post">
-                                            <input type="hidden" name="id" value="@user.Id" />
-                                            <button class="btn btn-outline-danger btn-sm" type="submit">Follow</button>
+                                        <form asp-action="Login" asp-controller="Account" method="post">
+                                            <button class="btn btn-outline-danger btn-sm">Follow</button>
                                         </form>
                                     }
-                                }
-                                else
-                                {
-                                    <form asp-action="Login" asp-controller="Account" method="post">
-                                        
-                                        <button class="btn btn-outline-danger btn-sm">Follow</button>
-                                    </form>
-                                }
+                                </div>
                             </div>
-                        </div>
-                        <div class="channels-card-body">
-                            <div class="channels-title">
-                                <a href="#">@user.UserName</a>
-                            </div>
-                            <div class="channels-view">
-                                @user.Followers.Count() subscribers
+                            <div class="channels-card-body">
+                                <div class="channels-title">
+                                    <a href="#">@user.UserName</a>
+                                </div>
+                                <div class="channels-view">
+                                    @user.Followers.Count() subscribers
+                                </div>
                             </div>
                         </div>
                     </div>
+                }
+       
 
-                   @*  @if (user.Followers.Any())
-                    {
-                        <h3>Followers</h3>
-                        <ul>
-                            @foreach (var follower in user.Followers)
-                            {
-                                <li>@follower.Follower.UserName</li>
-                            }
-                        </ul>
-                    }
+          
 
-                    @if (user.Followees.Any())
-                    {
-                        <h3>Following</h3>
-                        <ul>
-                            @foreach (var followee in user.Followees)
-                            {
-                                <li>@followee.Followee.UserName</li>
-                            }
-                        </ul>
-                    } *@
-                </div>
-            }
         </div>
     </div>
 </div>

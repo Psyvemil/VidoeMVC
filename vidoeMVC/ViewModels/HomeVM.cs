@@ -14,7 +14,8 @@ namespace vidoeMVC.ViewModels
         public  Video Video { get; set; } = new Video();
         public List<Video> Videos { get; set; } = new List<Video>();
 
+        public List<VideoViewModel> VideoViewModels { get; set; }
         public UserEditVM UserEditVM { get; set; }
-
+        public PaginationVM paginationVM { get; internal set; }
     }
 }
