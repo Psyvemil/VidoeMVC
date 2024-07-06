@@ -49,7 +49,7 @@
         <!-- Navbar -->
         <ul class="navbar-nav ml-auto ml-md-0 osahan-right-navbar">
             <li class="nav-item mx-1">
-                <a class="nav-link" href="upload.html">
+                <a class="nav-link" asp-controller="VideoUpload" asp-action="Create">
                     <i class="fas fa-plus-circle fa-fw"></i>
                     Upload Video
                 </a>
@@ -82,7 +82,7 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     <a class="nav-link dropdown-toggle user-dropdown-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img alt="Avatar" src="~/img/user.png">
+                        <img alt="Avatar" src="@Model.UserL.ProfPhotURL">
                         @User.Identity.Name
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
@@ -146,9 +146,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="history-page.html">
+                    <a class="nav-link" asp-controller="LikedVid" asp-action="Index">
                         <i class="fas fa-fw fa-history"></i>
-                        <span>History Page</span>
+                        <span>Liken Video</span>
                     </a>
                 </li>
             }
@@ -175,7 +175,7 @@
                 <li class="nav-item">
                     <a class="nav-link" asp-controller="Account" asp-action="Login">
                         <i class="fas fa-fw fa-history"></i>
-                        <span>History Page</span>
+                        <span>Liken Video</span>
                     </a>
                 </li>
             }
@@ -269,7 +269,7 @@
     </div>
   
 
-
+    
     <!-- Bootstrap core JavaScript-->
     <script src="~/vendor/jquery/jquery.min.js"></script>
     <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -280,5 +280,6 @@
     <!-- Custom scripts for all pages-->
     <script src="~/js/custom.js"></script>
 
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

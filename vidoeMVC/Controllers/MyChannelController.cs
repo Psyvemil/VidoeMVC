@@ -42,7 +42,7 @@ using NuGet.Versioning;
                       Followers = u.Followers ?? new List<UserFollow>(),
                       Followees = u.Followees ?? new List<UserFollow>()
                   }).ToListAsync();
-            var usert = await _userManager.Users.Select(u => new UserVM
+            var userL = await _userManager.Users.Select(u => new UserVM
             {
                 UserName = u.UserName,
                 Id = u.Id,
@@ -56,7 +56,7 @@ using NuGet.Versioning;
              ).FirstOrDefaultAsync(id => id.Id == finduser.Id);
             var homeVM = new HomeVM
             {
-                UserL=usert,
+                UserL=userL,
                 users = appUsers,
                 Videos = videos,
                 //user = luser,

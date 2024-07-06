@@ -13,7 +13,7 @@ namespace vidoeMVC.ViewModels.Videos
             public DateTime CreatedTime { get; set; }
             public string Duration { get; set; } 
             public UserVM Author { get; set; }
-
+            public int ViewCount { get; set; }
            
         }
 

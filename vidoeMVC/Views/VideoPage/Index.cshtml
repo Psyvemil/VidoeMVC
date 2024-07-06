@@ -1,5 +1,5 @@
-﻿@model HomeVM
-
+﻿@using System.Security.Claims
+@model HomeVM
 
 <div id="content-wrapper">
     <div class="container-fluid pb-0">
@@ -7,29 +7,65 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="single-video-left">
-                        <div class="single-video">                     
+                        <div class="single-video">
                             <iframe width="100%" height="315" src="@Model.Video.VideoUrl" frameborder="0"
-                            allow="encrypted-media" allowfullscreen></iframe>
+                                    allow="encrypted-media" allowfullscreen></iframe>
                         </div>
                         <div class="single-video-title box mb-3">
                             <h2><a href="#">@Model.Video.Title</a></h2>
-                            <p class="mb-0"><i class="fas fa-eye"></i> 2,729,347 views</p>
+                            <p class="mb-0"><i class="fas fa-eye"></i> @Model.Video.ViewCount views</p>
+                            <div class="float-right ">
+
+                                <!-- Like and Dislike buttons -->
+                                <button class="btn btn-primary like-btn" data-video-id="@Model.Video.Id" data-is-like="true">
+                                    Like <span class="like-count">@Model.Video.Like.Where(vl => vl.LikeDislike.IsLike).Count()</span>
+                                </button>
+                                <button class="btn btn-danger dislike-btn" data-video-id="@Model.Video.Id" data-is-like="false">
+                                    Dislike <span class="dislike-count">@Model.Video.Like.Where(vl => !vl.LikeDislike.IsLike).Count()</span>
+                                </button>
+                                
+                            </div>
                         </div>
                         <div class="single-video-author box mb-3">
-                            <div class="float-right"><button class="btn btn-danger" type="button">Subscribe <strong>@Model.Video.Author.Followers.Count()</strong></button> <button class="btn btn btn-outline-danger" type="button"><i class="fas fa-bell"></i></button></div>
-                            <img class="img-fluid" src="img/s4.png" alt="">
-                            <p><a href="#"><strong>@Model.Video.Author.Name</strong></a> <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></p>
+                            <div class="float-right"> 
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                                if (Model.Video.Author.Followers.Any(f => f.FollowerId == currentUserId))
+                                {
+                                    <form asp-action="Unfollow" asp-controller="Following" method="post">
+                                        <input type="hidden" name="id" value="@Model.Video.Author.Id" />
+                                            <button class="btn btn-outline-secondary" type="submit">Unfollow <strong>@Model.Video.Author.Followers.Count()</strong></button>
+                                    </form>
+                                }
+                                else
+                                {
+                                    <form asp-action="Follow" asp-controller="Following" method="post">
+                                        <input type="hidden" name="id" value="@Model.Video.Author.Id" />
+                                            <button class="btn btn-outline-danger " type="submit">Subscribe <strong>@Model.Video.Author.Followers.Count()</strong> </button>
+                                    </form>
+                                }
+                            }
+                                </div>
+                            
+                            <img class="img-fluid" src="@Model.Video.Author.ProfilPhotoURL" alt="">
+                            
+
+                            
+                            <p><a href="#"><strong>@Model.Video.Author.UserName</strong></a> <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></p>
                             <small>Published on @Model.Video.CreatedTime.ToString("MMM dd, yyyy")</small>
                         </div>
                         <div class="single-video-info-content box mb-3">
                             <h6>Cast:</h6>
-                            <p>@foreach(var cast in Model.Video.Casts)
+                            <p>
+                                @foreach (var cast in Model.Video.Casts)
                                 {
                                     @cast.User.Name
                                 }
                             </p>
                             <h6>Category :</h6>
-                            <p>@foreach(var cat in Model.Video.VCategories)
+                            <p>
+                                @foreach (var cat in Model.Video.VCategories)
                                 {
                                     @cat.Category.Name
                                 }
@@ -38,12 +74,36 @@
                             <p>@Model.Video.Description</p>
                             <h6>Tags :</h6>
                             <p class="tags mb-0">
-                                @foreach(var tag in Model.Video.Tags)
-                                {                                    
-                                <span><a href="#">@tag.Tag.Name</a></span>
+                                @foreach (var tag in Model.Video.Tags)
+                                {
+                                    <span><a href="#">@tag.Tag.Name</a></span>
                                 }
-                               
                             </p>
+
+                            <!-- Comments section -->
+                            <br />
+                            <div>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    
+                            <form id="add-comment-form"  method="post" asp-action="AddComment" asp-controller="VideoPage">
+                                <input type="hidden" name="videoId" value="@Model.Video.Id" />
+                                <textarea class="form-control" name="text" placeholder="Add a comment"></textarea>
+                                <button class="btn btn-primary type="submit">Submit</button>
+
+                            </form>
+                              
+                                }
+                                else
+                                {
+                                    <p><a asp-controller="Account" asp-action="Login">Log in</a> to add a comment.</p>
+                                }
+                            </div>
+                                <h3>Comments:</h3>
+                            <div id="comments-section">
+                                @Html.Partial("_CommentsPartial", Model.Video.Comments)
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -72,73 +132,47 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                @foreach(var video in Model.Videos)
+                                @foreach (var video in Model.Videos)
                                 {
-                                <div class="video-card video-card-list">
-                                    <div class="video-card-image">
-                                        <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                                        <a href="#"><img class="img-fluid" src="@video.TumbnailUrl" alt=""></a>
-                                        <div class="time">3:50</div>
-                                    </div>
-                                    <div class="video-card-body">
-                                        <div class="btn-group float-right right-action">
-                                            <a href="#" class="right-action-link text-gray" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star"></i> &nbsp; Top Rated</a>
-                                                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-signal"></i> &nbsp; Viewed</a>
-                                                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
+                                    if(video.Id!=Model.Video.Id)
+                                    {
+                                    <div class="video-card video-card-list">
+                                        <div class="video-card-image">
+                                            <a class="play-icon" asp-route-id="@video.Id" asp-action="Index" asp-controller="VideoPage"><i class="fas fa-play-circle"></i></a>
+                                            <a asp-route-id="@video.Id" asp-action="Index" asp-controller="VideoPage"><img class="img-fluid" src="@video.TumbnailUrl" alt=""></a>
+                                            <div class="time">@video.Duration</div>
+                                        </div>
+                                        <div class="video-card-body">
+                                            <div class="btn-group float-right right-action">
+                                                <a href="#" class="right-action-link text-gray" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star"></i> &nbsp; Top Rated</a>
+                                                    <a class="dropdown-item" href="#"><i class="fas fa-fw fa-signal"></i> &nbsp; Viewed</a>
+                                                    <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
+                                                </div>
+                                            </div>
+                                            <div class="video-title">
+                                                <a href="#">@video.Title</a>
+                                            </div>
+                                            <div class="video-page text-success">
+                                                @video.Author.UserName  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
+                                            </div>
+                                            <div class="video-view">
+                                                    @video.ViewCount views &nbsp;<i class="fas fa-calendar-alt"></i> @video.CreatedTime.ToString("MMM dd, yyyy")
                                             </div>
                                         </div>
-                                        <div class="video-title">
-                                            <a href="#">@video.Title</a>
-                                        </div>
-                                        <div class="video-page text-success">
-                                            @video.Author.Name  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
-                                        </div>
-                                        <div class="video-view">
-                                            1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
-                                        </div>
                                     </div>
-                                </div>
-                                    
+                                    }
                                 }
-                               
                                 <div class="adblock mt-0">
                                     <div class="img">
                                         Google AdSense<br>
                                         336 x 280
                                     </div>
                                 </div>
-                                <div class="video-card video-card-list">
-                                    <div class="video-card-image">
-                                        <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                                        <a href="#"><img class="img-fluid" src="img/v2.png" alt=""></a>
-                                        <div class="time">3:50</div>
-                                    </div>
-                                    <div class="video-card-body">
-                                        <div class="btn-group float-right right-action">
-                                            <a href="#" class="right-action-link text-gray" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star"></i> &nbsp; Top Rated</a>
-                                                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-signal"></i> &nbsp; Viewed</a>
-                                                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
-                                            </div>
-                                        </div>
-                                        <div class="video-title">
-                                            <a href="#">Duis aute irure dolor in reprehenderit in.</a>
-                                        </div>
-                                        <div class="video-page text-success">
-                                            Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
-                                        </div>
-                                        <div class="video-view">
-                                            1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
-                                        </div>
-                                    </div>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
@@ -147,4 +181,57 @@
         </div>
     </div>
     <!-- /.container-fluid -->
-    
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('.like-btn, .dislike-btn').on('click', function () {
+                var button = $(this);
+                var videoId = button.data('video-id');
+                var isLike = button.data('is-like');
+
+                $.post('/VideoPage/Like', { videoId: videoId, isLike: isLike }, function () {
+                    // Handle success
+                }).fail(function () {
+                    // Handle error
+                });
+            });
+
+            $('#add-comment-form').submit(function (e) {
+                e.preventDefault();
+
+                var form = $(this);
+                var actionUrl = form.attr('action');
+
+                $.ajax({
+                    type: 'POST',
+                    url: actionUrl,
+                    data: form.serialize(),
+                    success: function (response) {
+                        $('#comments-section').html(response);
+                        form[0].reset();
+                    },
+                    error: function () {
+                        alert('An error occurred while adding your comment. Please try again.');
+                    }
+                });
+            });
+             $('.delete-comment-btn').click(function () {
+            var commentId = $(this).closest('.delete-comment-form').data('comment-id');
+            $.ajax({
+                url: '/VideoPage/DeleteComment',
+                type: 'POST',
+                data: { commentId: commentId },
+                success: function (result) {
+                    // Remove the deleted comment from UI
+                    $('#comment-' + commentId).remove();
+                },
+                error: function () {
+                    alert('your comment deleted after refresh.');
+                }
+            });
+        });
+        });
+    </script>
+}

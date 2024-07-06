@@ -1,18 +1,15 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Emit;
-using vidoeMVC.Enums;
 using vidoeMVC.Models;
-
 
 namespace vidoeMVC.DAL
 {
-    public class VidoeDBContext : IdentityDbContext
+    public class VidoeDBContext : IdentityDbContext<AppUser>
     {
         public VidoeDBContext(DbContextOptions<VidoeDBContext> options) : base(options)
         {
         }
-        public DbSet<AppUser> Users { get; set; }
+
         public DbSet<Video> Videos { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Tag> Tags { get; set; }
@@ -20,6 +17,10 @@ namespace vidoeMVC.DAL
         public DbSet<VideoCategory> VideoCategories { get; set; }
         public DbSet<VideoTag> VideoTags { get; set; }
         public DbSet<VideoCast> VideoCasts { get; set; }
+        public DbSet<LikeDislike> LikeDislikes { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<VideoLike> VideoLikes { get; set; }
+        public DbSet<VideoComment> VideoComments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -67,7 +68,7 @@ namespace vidoeMVC.DAL
                 .HasForeignKey(vt => vt.TagId);
 
             modelBuilder.Entity<VideoCast>()
-        .HasKey(vc => new { vc.VideoId, vc.UserId });
+                .HasKey(vc => new { vc.VideoId, vc.UserId });
 
             modelBuilder.Entity<VideoCast>()
                 .HasOne(vc => vc.Video)
@@ -82,10 +83,27 @@ namespace vidoeMVC.DAL
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<AppUser>()
-           .HasMany(u => u.Videos)
-           .WithOne(v => v.Author) 
-           .HasForeignKey(v => v.AuthorId);
+                .HasMany(u => u.Videos)
+                .WithOne(v => v.Author)
+                .HasForeignKey(v => v.AuthorId);
+
+            modelBuilder.Entity<VideoComment>()
+                .HasKey(vc => new { vc.VideoId, vc.CommentId });
+
+            modelBuilder.Entity<VideoComment>()
+                .HasOne(vc => vc.Video)
+                .WithMany(v => v.Comments)
+                .HasForeignKey(vc => vc.VideoId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<VideoLike>()
+                .HasKey(vl => new { vl.VideoId, vl.LikeDislikeId });
+
+            modelBuilder.Entity<VideoLike>()
+                .HasOne(vl => vl.Video)
+                .WithMany(v => v.Like)
+                .HasForeignKey(vl => vl.VideoId)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
-

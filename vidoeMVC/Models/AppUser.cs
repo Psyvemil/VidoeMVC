@@ -15,10 +15,13 @@ namespace vidoeMVC.Models
         public ICollection<VideoCast>? VideoCasts { get; set; }
         public string FBlink { get; set; } = "www.facebook.com";
         public string Xlink { get; set; } = "x.com";
-        public string Instlink { get; set; } = "www.instagram.com";
-         
+        public string Instlink { get; set; } = "www.instagram.com";         
         public string? AboutMe { get; set; } = "No information heleki";
         public string? ProfilPhotoURL { get; set; } = "../imgs/DefaultProfPhot/Default.png";
+
+        public ICollection<VideoComment > VideoComments { get; set; }
+        public ICollection<VideoLike> VideoLike { get; set; }
+
 
     }
 }

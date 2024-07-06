@@ -1,4 +1,5 @@
 ﻿using vidoeMVC.Models;
+using vidoeMVC.ViewModels.Videos;
 
 namespace vidoeMVC.ViewModels.Users
 {
@@ -27,6 +28,6 @@ namespace vidoeMVC.ViewModels.Users
         public ICollection<UserFollow> Followers { get; set; } = new List<UserFollow>();
         public ICollection<UserFollow> Followees { get; set; } = new List<UserFollow>();
 
-
+        public ICollection<VideoViewModel> Videos { get; set; } = new List<VideoViewModel>();
     }
 }

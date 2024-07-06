@@ -1,0 +1,40 @@
+﻿@using vidoeMVC.Models
+@model IEnumerable<VideoComment>
+
+@foreach (var videoComment in Model)
+{
+    <div class="comment" id="comment-@videoComment.CommentId">
+        @if (videoComment.Comment != null)
+        {
+            @if (videoComment.User != null)
+            {
+                <p>
+                    <strong>@videoComment.User.UserName</strong> - @videoComment.Comment.CreatedTime.ToString("g")- @if (User.Identity.IsAuthenticated && User.Identity.Name == videoComment.User.UserName)
+                    {
+                        <form class="delete-comment-form" asp-action="DeleteComment" asp-controller="VideoPage" data-comment-id="@videoComment.CommentId">
+                            <button class="btn-danger delete-comment-btn" type="button">Delete</button>
+                        </form>
+                    }
+                </p>
+            }
+            else
+            {
+                <p><strong>Unknown User</strong> - @videoComment.Comment.CreatedTime.ToString("g")</p>
+            }
+            <p>@videoComment.Comment.Text</p>
+           
+        }
+        else
+        {
+            <p>No comment text available.</p>
+        }
+    </div>
+}
+
+@section Scripts {
+    <script>
+       
+    </script>
+}
+
+
