@@ -36,7 +36,7 @@ using NuGet.Versioning;
                   .ThenInclude(f => f.Followee)
                   .Select(u => new UserVM
                   {
-
+                      ProfPhotURL = u.ProfilPhotoURL,
                       UserName = u.UserName,
                       Id = u.Id,
                       Followers = u.Followers ?? new List<UserFollow>(),

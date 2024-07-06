@@ -1,4 +1,5 @@
 ﻿@using System.Security.Claims
+@using Newtonsoft.Json
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +23,11 @@
     <link rel="stylesheet" href="~/vendor/owl-carousel/owl.theme.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+  
 </head>
 <body id="page-top">
     <nav class="navbar navbar-expand navbar-light bg-white static-top osahan-nav sticky-top">
@@ -29,7 +35,7 @@
         <button class="btn btn-link btn-sm text-secondary order-1 order-sm-0" id="sidebarToggle">
             <i class="fas fa-bars"></i>
         </button> &nbsp;&nbsp;
-        <a class="navbar-brand mr-1" href="index.html"><img class="img-fluid" alt="" src="~/img/logo.png"></a>
+        <a class="navbar-brand mr-1" asp-action="Index" asp-controller="Home"><img class="img-fluid" alt="" src="~/img/logo.png"></a>
         <!-- Navbar Search -->
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-5 my-2 my-md-0 osahan-navbar-search">
             <div class="input-group">
@@ -241,5 +247,21 @@
     <script src="~/vendor/owl-carousel/owl.carousel.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="~/js/custom.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.select2').select2({
+                placeholder: "Select cast members",
+                allowClear: true
+            });
+        });
+
+    </script>
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    @RenderSection("Scripts", required: false)
+
 </body>
 </html>

@@ -1,0 +1,97 @@
+﻿@using vidoeMVC.ViewModels.Videos
+@model VideoEditVM
+
+@{
+    ViewData["Title"] = "Edit Video";
+    Layout = "~/Views/Shared/_Layout1.cshtml"; // Adjust the layout path as per your project structure
+}
+
+<div class="container-fluid">
+<h2>Edit Video</h2>
+    <div class="video-block section-padding">
+        <div >
+<form asp-action="Edit" asp-controller="VideoUpload" method="post" enctype="multipart/form-data">
+  
+
+                <div class="form-group">
+
+                    <div class="form-group">
+                        <img class="img-fluid" src="@Model.TumbnailUrl" alt="Alternate Text" style="width: 300px;" />
+                        <label asp-for="TumbnailUrl" class="control-label" hidden></label>
+                        <input asp-for="TumbnailUrl" class="form-control" hidden />
+                        <input type="file" class="form-control-file" name="Thumbnail" />
+
+                    </div>
+                </div>
+
+    <div class="form-group">
+        <label asp-for="Title" class="control-label"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Privacy" class="control-label"></label>
+        <select asp-for="Privacy" class="form-control" asp-items="ViewBag.PrivacyOptions"></select>
+        <span asp-validation-for="Privacy" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Language" class="control-label"></label>
+        <select asp-for="Language" class="form-control" asp-items="ViewBag.Languages"></select>
+        <span asp-validation-for="Language" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CategoriesIDs" class="control-label">Categories</label>
+        @foreach (var category in ViewBag.Categories)
+        {
+
+          <div>
+              <input type="checkbox" id="@($"category-{category.Id}")" name="CategoriesIDs" value="@category.Id"
+              @(Model.CategoriesIDs != null && Array.Exists(Model.CategoriesIDs, id => id == category.Id) ? "checked" : "") />
+              <label for="@($"category-{category.Id}")">@category.Name</label>
+          </div>
+        }
+        <span asp-validation-for="CategoriesIDs" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Tags" class="control-label">Tags</label>
+        <input asp-for="Tags" class="form-control" />
+        <span asp-validation-for="Tags" class="text-danger"></span>
+    </div>
+
+    <div class="form-group" hidden>
+        <label asp-for="CastIDs" class="control-label">Cast Members</label>
+        @foreach (var user in ViewBag.Users)
+        {
+         <div>
+             <input type="checkbox" id="@($"user-{user.Id}")" name="CastIDs" value="@user.Id"
+             @(Model.CastIDs != null && Array.Exists(Model.CastIDs, id => id == user.Id) ? "checked" : "") />
+             <label for="@($"user-{user.Id}")">@user.UserName</label>
+         </div>
+
+        }
+        <span asp-validation-for="CastIDs" class="text-danger"></span>
+
+
+
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </div>
+    
+</form>
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

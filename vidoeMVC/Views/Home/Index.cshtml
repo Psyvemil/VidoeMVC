@@ -79,7 +79,7 @@
                     <div class="video-card">
                         <div class="video-card-image">
                             <a class="play-icon" asp-route-id="@video.Id" asp-action="Index" asp-controller="VideoPage"><i class="fas fa-play-circle"></i></a>
-                            <a asp-route-id="@video.Id" asp-action="Index" asp-controller="VideoPage"><img class="img-fluid height:150 width:260" src="@video.TumbnailUrl" height="150" width="260" alt=""></a>
+                            <a asp-route-id="@video.Id" asp-action="Index" asp-controller="VideoPage"><img class="img-fluid " style=" height:150px; width:260px" src="@video.TumbnailUrl" height="150" width="260" alt=""></a>
                             <div class="time">
                                 <p>@video.Duration</p>
                             </div>

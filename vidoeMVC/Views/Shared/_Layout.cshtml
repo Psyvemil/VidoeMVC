@@ -31,7 +31,7 @@
         <button class="btn btn-link btn-sm text-secondary order-1 order-sm-0" id="sidebarToggle">
             <i class="fas fa-bars"></i>
         </button> &nbsp;&nbsp;
-        <a class="navbar-brand mr-1" href="index.html"><img class="img-fluid" alt="" src="~/img/logo.png"></a>
+        <a class="navbar-brand mr-1" asp-action="Index" asp-controller="Home"><img class="img-fluid" alt="" src="~/img/logo.png"></a>
         <!-- Navbar Search -->
        
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-5 my-2 my-md-0 osahan-navbar-search" asp-action="Search" asp-controller="Home" method="get" >
@@ -206,7 +206,7 @@
                                     {
                                         <li>
                                             <a href="subscriptions.html">
-                                                <img class="img-fluid" alt="" src="~/img/s1.png"> @user.UserName
+                                                <img class="img-fluid" alt="" src="@user.ProfPhotURL"> @user.UserName
                                             </a>
                                             
                                         </li>
@@ -221,26 +221,7 @@
         <div id="content-wrapper">
             @RenderBody()
             <!-- Sticky Footer -->
-            <footer class="sticky-footer">
-                <div class="container">
-                    <div class="row no-gutters">
-                        <div class="col-lg-6 col-sm-6">
-                            <p class="mt-1 mb-0">
-                                &copy; Copyright 2018 <strong class="text-dark">Vidoe</strong>. All Rights Reserved<br>
-                                <small class="mt-0 mb-0">
-                                    Made with <i class="fas fa-heart text-danger"></i> by <a class="text-primary" target="_blank" href="https://askbootstrap.com/">Ask Bootstrap</a>
-                                </small>
-                            </p>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 text-right">
-                            <div class="app">
-                                <a href="#"><img alt="" src="~/img/google.png"></a>
-                                <a href="#"><img alt="" src="~/img/apple.png"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+           
         </div>
         <!-- /.content-wrapper -->
     </div>
@@ -279,7 +260,7 @@
     <script src="~/vendor/owl-carousel/owl.carousel.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="~/js/custom.js"></script>
-
-    @RenderSection("Scripts", required: false)
+ @RenderSection("Scripts", required: false)
+   
 </body>
 </html>

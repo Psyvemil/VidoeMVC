@@ -61,7 +61,7 @@ namespace vidoeMVC.Controllers
                   Surname = u.Surname,
                   Name = u.Name,
                   Email = u.Email,
-
+                  ProfPhotURL = u.ProfilPhotoURL,
 
 
                   Followers = u.Followers ?? new List<UserFollow>(),

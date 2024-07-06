@@ -119,6 +119,7 @@ namespace vidoeMVC.Controllers
                 .ThenInclude(f => f.Followee)
                 .Select(u => new UserVM
                 {
+                    ProfPhotURL = u.ProfilPhotoURL,
                     UserName = u.UserName,
                     Id = u.Id,
                     Followers = u.Followers ?? new List<UserFollow>(),
@@ -152,11 +153,29 @@ namespace vidoeMVC.Controllers
                     }
                 })
                 .ToList();
+            var finduser = await _userManager.GetUserAsync(User);
+
+            UserVM userL = null;
+            if (finduser != null)
+            {
+                userL = await _userManager.Users.Select(u => new UserVM
+                {
+                    UserName = u.UserName,
+                    Id = u.Id,
+                    BirthDate = u.BirthDate,
+                    Surname = u.Surname,
+                    Name = u.Name,
+                    Email = u.Email,
+                    PhoneNumber = u.PhoneNumber,
+                    ProfPhotURL = u.ProfilPhotoURL
+                }).FirstOrDefaultAsync(u => u.Id == finduser.Id);
+            }
 
             var homeVM = new HomeVM
             {
                 VideoViewModels = videos,
-                users = appUsers
+                users = appUsers,
+                UserL= userL,
             };
 
             return View("Search", homeVM);

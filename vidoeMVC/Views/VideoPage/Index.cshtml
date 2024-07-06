@@ -8,7 +8,7 @@
                 <div class="col-md-8">
                     <div class="single-video-left">
                         <div class="single-video">
-                            <iframe width="100%" height="315" src="@Model.Video.VideoUrl" frameborder="0"
+                            <iframe width="100%" height="315"  src="@Model.Video.VideoUrl" frameborder="0"
                                     allow="encrypted-media" allowfullscreen></iframe>
                         </div>
                         <div class="single-video-title box mb-3">
@@ -60,7 +60,7 @@
                             <p>
                                 @foreach (var cast in Model.Video.Casts)
                                 {
-                                    @cast.User.Name
+                                    @cast.User.UserName
                                 }
                             </p>
                             <h6>Category :</h6>
@@ -132,40 +132,52 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                @foreach (var video in Model.Videos)
-                                {
-                                    if(video.Id!=Model.Video.Id)
-                                    {
-                                    <div class="video-card video-card-list">
-                                        <div class="video-card-image">
-                                            <a class="play-icon" asp-route-id="@video.Id" asp-action="Index" asp-controller="VideoPage"><i class="fas fa-play-circle"></i></a>
-                                            <a asp-route-id="@video.Id" asp-action="Index" asp-controller="VideoPage"><img class="img-fluid" src="@video.TumbnailUrl" alt=""></a>
-                                            <div class="time">@video.Duration</div>
-                                        </div>
-                                        <div class="video-card-body">
-                                            <div class="btn-group float-right right-action">
-                                                <a href="#" class="right-action-link text-gray" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star"></i> &nbsp; Top Rated</a>
-                                                    <a class="dropdown-item" href="#"><i class="fas fa-fw fa-signal"></i> &nbsp; Viewed</a>
-                                                    <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
-                                                </div>
-                                            </div>
-                                            <div class="video-title">
-                                                <a href="#">@video.Title</a>
-                                            </div>
-                                            <div class="video-page text-success">
-                                                @video.Author.UserName  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
-                                            </div>
-                                            <div class="video-view">
-                                                    @video.ViewCount views &nbsp;<i class="fas fa-calendar-alt"></i> @video.CreatedTime.ToString("MMM dd, yyyy")
-                                            </div>
-                                        </div>
-                                    </div>
-                                    }
-                                }
+                                 <h3>Related Videos</h3>
+    <div id="relatedVideos">
+        @foreach (var video in Model.Videos.Take(5))
+        {
+            if (video.Id != Model.Video.Id)
+            {
+                <div class="video-card video-card-list">
+                    <div class="video-card-image">
+                        <a class="play-icon" asp-route-id="@video.Id" asp-action="Index" asp-controller="VideoPage"><i class="fas fa-play-circle"></i></a>
+                        <a asp-route-id="@video.Id" asp-action="Index" asp-controller="VideoPage"><img class="img-fluid" src="@video.TumbnailUrl" alt=""></a>
+                        <div class="time">@video.Duration</div>
+                    </div>
+                    <div class="video-card-body">
+                        <div class="btn-group float-right right-action">
+                            <a href="#" class="right-action-link text-gray" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star"></i> &nbsp; Top Rated</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-signal"></i> &nbsp; Viewed</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
+                            </div>
+                        </div>
+                        <div class="video-title">
+                            <a href="#">@video.Title</a>
+                        </div>
+                        <div class="video-page text-success">
+                            @video.Author.UserName  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
+                        </div>
+                        <div class="video-view">
+                                @video.ViewCount views &nbsp;<i class="fas fa-calendar-alt"></i> @video.CreatedTime.ToString("MMM dd, yyyy")
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+    @if (Model.Videos.Count > 5)
+    {
+        <div class="text-center">
+            <button id="loadMoreBtn" class="btn btn-primary">Load More</button>
+        </div>
+    }
+</div>
+
                                 <div class="adblock mt-0">
                                     <div class="img">
                                         Google AdSense<br>
@@ -232,6 +244,25 @@
                 }
             });
         });
+        });
+        var skip = 5; // Initial skip value
+
+        $('#loadMoreBtn').click(function () {
+            $.ajax({
+                url: '@Url.Action("LoadMoreVideos", "VideoPage")',
+                type: 'GET',
+                data: { skip: skip, videoId: @Model.Video.Id },
+                success: function (data) {
+                    $('#relatedVideos').append(data);
+                    skip += 5; // Increment skip value for next request
+                    if (data.length < 5) {
+                        $('#loadMoreBtn').hide(); // Hide button if no more videos to load
+                    }
+                },
+                error: function () {
+                    console.log('Error loading more videos.');
+                }
+            });
         });
     </script>
 }

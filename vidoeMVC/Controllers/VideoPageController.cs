@@ -72,6 +72,7 @@ namespace vidoeMVC.Controllers
                 .ThenInclude(f => f.Followee)
                 .Select(u => new UserVM
                 {
+                    ProfPhotURL=u.ProfilPhotoURL,
                     UserName = u.UserName,
                     Id = u.Id,
                     Followers = u.Followers ?? new List<UserFollow>(),
@@ -201,7 +202,20 @@ public async Task<IActionResult> Like(int videoId, bool isLike)
 
         return Ok();
     }
+        [HttpGet]
+        public async Task<IActionResult> LoadMoreVideos(int skip, int videoId)
+        {
+            var relatedVideos = await _context.Videos
+                .Include(v => v.Author)
+                .Include(v => v.VCategories).ThenInclude(vc => vc.Category)
+                .Where(v => v.Id != videoId) // Exclude the current video
+                .Skip(skip)
+                .Take(5) // Load next 5 videos
+                .ToListAsync();
+
+            return PartialView("_RelatedVideosPartial", relatedVideos);
+        }
 
 
-}
+    }
 }

@@ -13,18 +13,18 @@
     <div class="single-channel-image">
         <img class="img-fluid" alt="" src="img/channel-banner.png">
         <div class="channel-profile">
-            <img class="channel-profile-img" alt="" src="@Model.UserL.ProfPhotURL">
+            <img class="channel-profile-img" alt="" src="@Model.UserL?.ProfPhotURL">
             <div class="social hidden-xs">
                 Social &nbsp;
-                <a class="fb" href="#">Facebook</a>
-                <a class="tw" href="#">Twitter</a>
-                <a class="gp" href="#">Google</a>
+                    <a class="fb" target="_blank" href="@Model.UserL.FBlink">Facebook</a>
+                    <a class="tw" target="_blank" href="@Model.UserL.Xlink">Twitter</a>
+                    <a class="in" target="_blank"  href="@Model.UserL.Instlink">Instagram</a>
             </div>
         </div>
     </div>
     <div class="single-channel-nav">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="channel-brand" href="#">@User.Identity.Name<span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></a>
+            <a class="channel-brand" href="#">@User.Identity?.Name<span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -95,6 +95,7 @@
                         <div class="video-card">
                             <div class="video-card-image">
                                 <a class="play-icon" asp-route-id="@video.Id" asp-action="Index" asp-controller="VideoPage"><i class="fas fa-play-circle"></i></a>
+
                                 <a asp-route-id="@video.Id" asp-action="Index" asp-controller="VideoPage"><img class="img-fluid" src="@video.TumbnailUrl" alt=""></a>
                                 <div class="time">@video.Duration</div>
                             </div>
@@ -103,10 +104,14 @@
                                     <a href="#">@video.Title</a>
                                 </div>
                                 <div class="video-page text-success">
-                                    @video.Author.UserName  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
+                                    @video.Author?.UserName  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
                                 </div>
                                 <div class="video-view">
                                     @video.ViewCount views &nbsp;<i class="fas fa-calendar-alt"></i> @video.CreatedTime.ToString("MMM dd, yyyy")
+                                </div>
+                                <div>
+                                        <a asp-route-id="@video.Id" asp-action="Edit" asp-controller="VideoUpload">Edit</a>
+                                        <a></a>
                                 </div>
                             </div>
                         </div>
