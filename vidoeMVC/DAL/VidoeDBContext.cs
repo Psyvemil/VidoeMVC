@@ -21,7 +21,7 @@ namespace vidoeMVC.DAL
         public DbSet<Comment> Comments { get; set; }
         public DbSet<VideoLike> VideoLikes { get; set; }
         public DbSet<VideoComment> VideoComments { get; set; }
-
+        public DbSet<VideoReport> VideoReports { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -104,6 +104,20 @@ namespace vidoeMVC.DAL
                 .WithMany(v => v.Like)
                 .HasForeignKey(vl => vl.VideoId)
                 .OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<VideoReport>(entity =>
+            {
+                entity.HasKey(vr => vr.Id);
+
+                entity.HasOne(vr => vr.Video)
+                    .WithMany(v => v.VideoReports)
+                    .HasForeignKey(vr => vr.VideoId)
+                    .OnDelete(DeleteBehavior.Restrict); // Изменение каскадного удаления на Restrict
+
+                entity.HasOne(vr => vr.User)
+                    .WithMany(u => u.VideoReports)
+                    .HasForeignKey(vr => vr.UserId)
+                    .OnDelete(DeleteBehavior.Restrict); // Изменение каскадного удаления на Restrict
+            });
         }
     }
 }

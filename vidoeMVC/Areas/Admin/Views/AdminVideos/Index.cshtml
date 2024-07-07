@@ -1,0 +1,47 @@
+﻿@using System.Security.Claims
+@model List<vidoeMVC.Models.Video> // Замените на вашу модель Video
+
+
+<h2>All Users' Videos</h2>
+
+<form asp-controller="AdminVideos" asp-action="Index" method="get" class="form-inline mb-3">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search..." name="searchString">
+    </div>
+    <button type="submit" class="btn btn-primary ml-2">Search</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tumbnail</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Views</th>
+            <th>Video</th>
+            <th>Created At</th>
+            <th></th>
+            <!-- Добавьте другие необходимые заголовки -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var video in Model)
+        {
+            <tr>
+                <td><img src="@video.TumbnailUrl" style=" height:100%; width:60px" alt="Alternate Text" /><a href="@video.TumbnailUrl">link</a> </td>
+                <td>@video.Title</td>
+                <td>@video.Author.UserName</td>
+                <td>@video.ViewCount</td>
+                <td><a href="@video.VideoUrl"> video link</a> </td>
+                <td>@video.CreatedTime.ToString("MMM dd, yyyy")</td>
+                <td>
+
+                    <form asp-route-id="@video.Id" asp-action="Delete" asp-controller="AdminVideos" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-link" onclick="return confirm('Are you sure you want to delete this video?');">Delete</button>
+                    </form>
+                </td>
+                <!-- Добавьте другие ячейки данных -->
+            </tr>
+        }
+    </tbody>
+</table>

@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace vidoeMVC.Controllers
 {
-    public class VideoPageController(UserManager<AppUser> _userManager, VidoeDBContext _context) : Controller
+    public class VideoPageController(UserManager<AppUser> _userManager, VidoeDBContext _context, EmailService _emailService) : Controller
     {
         public async Task<IActionResult> Index(int? id)
         {
@@ -216,6 +216,101 @@ public async Task<IActionResult> Like(int videoId, bool isLike)
             return PartialView("_RelatedVideosPartial", relatedVideos);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> ReportVideo([FromBody] VideoReport? model)
+        {
+            if (!ModelState.IsValid)
+            {
 
+                // Get the user ID of the currently logged-in user
+                var userId = await _userManager.GetUserAsync(User);
+
+                // Create a new video report
+                var videoReport = new VideoReport
+                {
+                    VideoId = model.VideoId,
+                    Reason = model.Reason,
+                    UserId = userId.Id,
+                    ReportedAt = DateTime.UtcNow
+                };
+
+                // Save the report to the database
+                _context.VideoReports.Add(videoReport);
+                await _context.SaveChangesAsync();
+
+                // Send an email notification to admin users
+                var video = await _context.Videos.FindAsync(model.VideoId);
+                var user = await _context.Users.FindAsync(userId.Id);
+                var emailMessage = $"User {user.UserName} reported video: '{video.Title}' reported video id: '{video.Id}' video Author: '{video.Author.UserName}' video author email: '{video.Author.Email}' " +
+                    $" for the following reason: {model.Reason} " ;
+
+                // Find all admin users
+                var adminUsers = await _userManager.GetUsersInRoleAsync("Admin");
+                foreach (var admin in adminUsers)
+                {
+                    await _emailService.SendEmailAsync(admin.Email, "Video Report", emailMessage);
+                }
+
+                return Json(new { message = "Your report has been submitted." });
+            }
+
+            return Json(new { message = "There was an error submitting your report." });
+        }
+
+        //[Authorize]
+        //[HttpPost]
+        //public async Task<IActionResult> ReportVideo(int videoId, string reason)
+        //{
+        //    var userId = _userManager.GetUserId(User);
+
+        //    if (userId == null || string.IsNullOrWhiteSpace(reason))
+        //    {
+        //        return BadRequest();
+        //    }
+
+        //    var videoReport = new VideoReport
+        //    {
+        //        VideoId = videoId,
+        //        UserId = userId,
+        //        Reason = reason,
+        //        ReportedAt = DateTime.Now
+        //    };
+
+        //    _context.VideoReports.Add(videoReport);
+        //    await _context.SaveChangesAsync();
+
+        //    var adminUsers = await _userManager.GetUsersInRoleAsync("Admin");
+        //    foreach (var admin in adminUsers)
+        //    {
+        //        var message = $"A video has been reported.\n\nVideo ID: {videoId}\nReason: {reason}";
+        //        await _emailService.SendEmailAsync(admin.Email, "Video Report Notification", message);
+        //    }
+
+        //    return Ok();
+        //}
+
+    }
+}
+public class SeedData
+{
+    public static async Task Initialize(IServiceProvider serviceProvider, UserManager<AppUser> userManager)
+    {
+        var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+        // Ensure the admin role exists
+        if (!await roleManager.RoleExistsAsync("Admin"))
+        {
+            await roleManager.CreateAsync(new IdentityRole("Admin"));
+        }
+
+        // Create an admin user if it doesn't already exist
+        var adminEmail = "psyvemil@gmail.com";
+        var adminUser = await userManager.FindByEmailAsync(adminEmail);
+        if (adminUser == null)
+        {
+            adminUser = new AppUser { UserName = adminEmail, Email = adminEmail };
+            await userManager.CreateAsync(adminUser, "AdminPassword123!");
+            await userManager.AddToRoleAsync(adminUser, "admin");
+        }
     }
 }

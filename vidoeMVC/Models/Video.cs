@@ -18,11 +18,12 @@ namespace vidoeMVC.Models
         public AppUser? Author { get; set; }
         public List<VideoStatus>? Privacy { get; set; }
         public List<Language>? Languages { get; set; }
-        public ICollection<VideoLike> Like { get; set; }
+        public ICollection<VideoLike>? Like { get; set; }
         public ICollection<VideoComment>? Comments { get; set; }
         public ICollection<VideoCategory>? VCategories { get; set; }
         public ICollection<VideoTag>? Tags { get; set; }
         public ICollection<VideoCast>? Casts { get; set; }
+        public ICollection<VideoReport>? VideoReports { get; set; }
 
     }
 }

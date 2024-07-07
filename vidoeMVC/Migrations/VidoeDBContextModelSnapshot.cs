@@ -181,6 +181,37 @@ namespace vidoeMVC.Migrations
                     b.ToTable("Tags");
                 });
 
+            modelBuilder.Entity("VideoReport", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Reason")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ReportedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("VideoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("VideoId");
+
+                    b.ToTable("VideoReports");
+                });
+
             modelBuilder.Entity("vidoeMVC.Models.AppUser", b =>
                 {
                     b.Property<string>("Id")
@@ -562,6 +593,25 @@ namespace vidoeMVC.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("VideoReport", b =>
+                {
+                    b.HasOne("vidoeMVC.Models.AppUser", "User")
+                        .WithMany("VideoReports")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("vidoeMVC.Models.Video", "Video")
+                        .WithMany("VideoReports")
+                        .HasForeignKey("VideoId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+
+                    b.Navigation("Video");
+                });
+
             modelBuilder.Entity("vidoeMVC.Models.UserFollow", b =>
                 {
                     b.HasOne("vidoeMVC.Models.AppUser", "Followee")
@@ -720,6 +770,8 @@ namespace vidoeMVC.Migrations
 
                     b.Navigation("VideoLike");
 
+                    b.Navigation("VideoReports");
+
                     b.Navigation("Videos");
                 });
 
@@ -749,6 +801,8 @@ namespace vidoeMVC.Migrations
                     b.Navigation("Tags");
 
                     b.Navigation("VCategories");
+
+                    b.Navigation("VideoReports");
                 });
 #pragma warning restore 612, 618
         }

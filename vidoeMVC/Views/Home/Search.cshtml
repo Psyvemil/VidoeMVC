@@ -18,7 +18,7 @@
                 <div class="video-card">
                     <div class="video-card-image">
                         <a class="play-icon" asp-route-id="@video.Id" asp-action="Index" asp-controller="VideoPage"><i class="fas fa-play-circle"></i></a>
-                        <a asp-route-id="@video.Id" asp-action="Index" asp-controller="VideoPage"><img class="img-fluid" src="@video.TumbnailUrl" alt=""></a>
+                                <a asp-route-id="@video.Id" asp-action="Index" asp-controller="VideoPage"><img class="img-fluid" src="@video.TumbnailUrl" style="width: 266px; height: 150px;" alt=""></a>
                         <div class="time">
                             <p>@video.Duration</p>
                         </div>
@@ -31,7 +31,7 @@
                             @video.Author.UserName <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
                         </div>
                         <div class="video-view">
-                            1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> @video.CreatedTime.ToString("MMM dd, yyyy")
+                            @video.ViewCount views &nbsp;<i class="fas fa-calendar-alt"></i> @video.CreatedTime.ToString("MMM dd, yyyy")
                         </div>
                     </div>
                 </div>

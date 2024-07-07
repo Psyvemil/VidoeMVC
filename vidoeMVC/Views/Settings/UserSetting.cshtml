@@ -81,6 +81,14 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <a class="control-label" asp-action="ForgotPassword" asp-route-email="@Model.UserL.Email" asp-controller="Account">New password<span class="required"></span></a>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-sm-12 text-right">
                 <button type="button" class="btn btn-danger border-none">Cancel</button>
                 <button type="submit" class="btn btn-success border-none">Save Changes</button>

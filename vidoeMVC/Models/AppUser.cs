@@ -19,9 +19,9 @@ namespace vidoeMVC.Models
         public string? AboutMe { get; set; } = "No information heleki";
         public string? ProfilPhotoURL { get; set; } = "../imgs/DefaultProfPhot/Default.png";
 
-        public ICollection<VideoComment > VideoComments { get; set; }
-        public ICollection<VideoLike> VideoLike { get; set; }
+        public ICollection<VideoComment>? VideoComments { get; set; }
+        public ICollection<VideoLike>? VideoLike { get; set; }
 
-
+        public ICollection<VideoReport>? VideoReports { get; set; }
     }
 }

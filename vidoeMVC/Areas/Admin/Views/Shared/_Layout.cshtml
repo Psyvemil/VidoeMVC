@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Modernize Free</title>
+    <title>Video admin</title>
     <link rel="shortcut icon" type="image/png" href="~/admin/assets/images/logos/favicon.png" />
     <link rel="stylesheet" href="~/admin/assets/css/styles.min.css" />
   
@@ -19,7 +19,7 @@
             <!-- Sidebar scroll-->
             <div>
                 <div class="brand-logo d-flex align-items-center justify-content-between">
-                    <a href="./index.html" class="text-nowrap logo-img">
+                    <a href="" class="text-nowrap logo-img">
                         <img src="~/admin/assets/images/logos/dark-logo.svg" width="180" alt="" />
                     </a>
                     <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
@@ -31,11 +31,11 @@
                     <ul id="sidebarnav">
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link" asp-controller="Slider" asp-action="Index" aria-expanded="false">
+                            <a class="sidebar-link" asp-controller="UserRole" asp-action="ManageRoles" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-layout-dashboard"></i>
                                 </span>
-                                <span class="hide-menu">Slider</span>
+                                <span class="hide-menu">User role</span>
                             </a>
                         </li>
 
@@ -55,11 +55,11 @@
 
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link" asp-controller="Product" asp-action="Index" aria-expanded="false">
+                            <a class="sidebar-link" asp-controller="AdminVideos" asp-action="Index" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-layout-dashboard"></i>
                                 </span>
-                                <span class="hide-menu">products</span>
+                                <span class="hide-menu">Videos</span>
                             </a>
                         </li>
 

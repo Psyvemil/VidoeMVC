@@ -344,5 +344,43 @@ namespace vidoeMVC.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var video = await _context.Videos
+                .Include(v => v.VCategories)
+                .Include(v => v.Tags)
+                .Include(v => v.Casts)
+                .FirstOrDefaultAsync(v => v.Id == id);
+
+            if (video == null)
+            {
+                return NotFound();
+            }
+
+            // Remove associated categories
+            if (video.VCategories != null && video.VCategories.Any())
+            {
+                _context.VideoCategories.RemoveRange(video.VCategories);
+            }
+
+            // Remove associated tags
+            if (video.Tags != null && video.Tags.Any())
+            {
+                _context.VideoTags.RemoveRange(video.Tags);
+            }
+
+            // Remove associated cast members
+            if (video.Casts != null && video.Casts.Any())
+            {
+                _context.VideoCasts.RemoveRange(video.Casts);
+            }
+
+            _context.Videos.Remove(video);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

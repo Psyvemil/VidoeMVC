@@ -82,7 +82,7 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     <a class="nav-link dropdown-toggle user-dropdown-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img alt="Avatar" src="@Model.UserL.ProfPhotURL">
+                        <img alt="Avatar" src="@Model.UserL?.ProfPhotURL">
                         @User.Identity.Name
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
@@ -205,7 +205,7 @@
                                     if (followrs.Id == User.FindFirstValue(ClaimTypes.NameIdentifier))
                                     {
                                         <li>
-                                            <a href="subscriptions.html">
+                                            <a asp-action="Index" asp-controller="Channel" asp-route-uid="@user.Id" >
                                                 <img class="img-fluid" alt="" src="@user.ProfPhotURL"> @user.UserName
                                             </a>
                                             

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using vidoeMVC.DAL;
+using vidoeMVC.Enums;
 using vidoeMVC.Models;
 using vidoeMVC.ViewModels;
 using vidoeMVC.ViewModels.Categories;
@@ -27,7 +28,7 @@ namespace vidoeMVC.Controllers
             var categories = await _context.Categories.ToListAsync();
 
             // Query videos with pagination
-            var videos = await _context.Videos
+            var videos = await _context.Videos.Where(u=>u.Privacy.Contains(VideoStatus.Public))
                 .Include(v => v.Author)
                 .OrderByDescending(v => v.CreatedTime)
                 .Skip((page - 1 ?? 0) * pageSize)
