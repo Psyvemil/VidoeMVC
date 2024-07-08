@@ -10,7 +10,7 @@ namespace vidoeMVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize]
-    //[Authorize(Roles ="Admin")] bunu duzelt
+    
     public class AdminVideosController(VidoeDBContext _context,EmailService _emailService) : Controller
     {
 
